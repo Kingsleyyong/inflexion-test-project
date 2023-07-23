@@ -12,9 +12,10 @@ import { genarateLogosGroupArray } from './utils.ts';
 
 interface HeaderProps {
 	theme: DisplayTheme;
+	className: string;
 }
 
-const Header = ({ theme }: HeaderProps) => {
+const Header = ({ theme, className }: HeaderProps) => {
 	const [logosGroup, setLogosGroup] = useState<LogosGroup[]>([]);
 
 	useEffect(() => {
@@ -22,11 +23,11 @@ const Header = ({ theme }: HeaderProps) => {
 	}, [theme]);
 
 	return (
-		<div data-theme={theme} className={style.headerBox}>
+		<div data-theme={theme} className={`${className} ${style.headerBox}`}>
 			{logosGroup.map((logoObj) => (
 				<LogoGroup
 					key={logoObj.title}
-					theme={theme}
+					displayTheme={theme}
 					logoImagePath={logoObj.logoImagePath}
 					title={logoObj.title}
 					tabsType={logoObj.tabsType}

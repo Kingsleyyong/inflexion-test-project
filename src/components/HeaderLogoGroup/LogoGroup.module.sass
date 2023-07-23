@@ -1,64 +1,36 @@
 @import './src/global/_global.sass'
 
-@mixin navBarText()
-    line-height: 15px
-    letter-spacing: 0em
-    text-transform: uppercase
-    text-align: center
-    font-size: $miniFont
-    font-weight: 700
-    color: $white
-
-
 .logoGroup
     @include flexCenter
-    margin: 0% 1%
-    width: 5%
+    width: 10%
     justify-content: center
     cursor: pointer
 
-
     img
-        max-width: 11%
-        max-height: 11%
+        width: 6%
         margin-right: 4%
-        flex-grow: 1
-
-    span
-        @include navBarText
-        flex-grow: 0
-
-    span[data-theme='1']
-        color:$gray700
-
-
 
 .mainLogo
-    width: 18%
+    width: 30%
     margin: 0 auto 0 1%
 
     img
-        max-width: 10%
-
-    span
-        @include navBarText
-        font-size: $smallFont
+        width: 6%
 
 .button
-    @include defaultFontFamily
-    @include navBarText
-
     width: 15%
     margin: 0 2% 0 auto
     background-color: $white
-    color: $gray700
     padding: 1%
     border-radius: 50px
     cursor: pointer
 
 .button[data-theme='1']
     background: linear-gradient(81.62deg, #313860 2.25%, #151928 79.87%)
-    color: white
+
+:export
+    white: $white
+    gray700: $gray700
    
 
 

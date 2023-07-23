@@ -3,6 +3,7 @@ import { createBrowserRouter, RouterProvider } from 'react-router-dom';
 import { ThemeProvider, createTheme, responsiveFontSizes } from '@mui/material';
 //SASS
 import style from './App.module.sass';
+import { Tabs } from './types/globalTypes';
 
 //Components
 const SignIn = lazy(() => import('./pages/SignIn/SignIn'));
@@ -17,7 +18,7 @@ const router = createBrowserRouter([
 		errorElement: <ErrorPage />,
 	},
 	{
-		path: '/sign-in',
+		path: `/${Tabs.SIGNIN}`,
 		element: (
 			<Suspense fallback={<Loading />}>
 				<SignIn />
@@ -25,7 +26,7 @@ const router = createBrowserRouter([
 		),
 	},
 	{
-		path: '/sign-up',
+		path: `/${Tabs.SIGNUP}`,
 		element: (
 			<Suspense fallback={<Loading />}>
 				<SignUp />

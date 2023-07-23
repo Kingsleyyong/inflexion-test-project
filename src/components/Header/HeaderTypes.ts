@@ -1,3 +1,5 @@
+import { Tabs } from '../../types/globalTypes';
+
 export enum TabsType {
 	LOGO,
 	NORMAL,
@@ -10,11 +12,11 @@ export interface LogosGroup {
 	tabsType: TabsType;
 }
 
-export enum Tabs {
-	VANDELAY_INDUSTRY = 'Vandelay Industries',
-	DASHBOARD = 'Dashboard',
-	PROFILE = 'Profile',
-	SIGNIN = 'Sign In',
-	SIGNUP = 'Sign Up',
-	FREE_DOWNLOAD = 'Free Download',
-}
+export const TabsTitleString = {
+	[Tabs.VANDELAY_INDUSTRY]: 'Vandelay Industries',
+	[Tabs.DASHBOARD]: 'Dashboard',
+	[Tabs.PROFILE]: 'Profile',
+	[Tabs.SIGNIN]: 'Sign In',
+	[Tabs.SIGNUP]: 'Sign Up',
+	[Tabs.FREE_DOWNLOAD]: 'Free Download',
+};

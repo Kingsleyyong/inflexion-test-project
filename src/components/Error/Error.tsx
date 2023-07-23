@@ -1,6 +1,7 @@
 import { Button, Typography } from '@mui/material';
 import { useRouteError } from 'react-router-dom';
 import style from './Error.module.sass';
+import { Tabs } from '../../types/globalTypes';
 
 export default function ErrorPage() {
 	const error: any = useRouteError();
@@ -25,7 +26,7 @@ export default function ErrorPage() {
 				</Typography>
 			</p>
 
-			<Button href="/sign-in">Back to Dashboard</Button>
+			<Button href={`/${Tabs.SIGNIN}`}>Back to Dashboard</Button>
 		</div>
 	);
 }

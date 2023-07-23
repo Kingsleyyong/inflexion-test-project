@@ -1,6 +1,6 @@
 import { LogosImage } from '../../constant/mockData';
-import { DisplayTheme } from '../../types/globalTypes';
-import { LogosGroup, Tabs, TabsType } from './HeaderTypes';
+import { DisplayTheme, Tabs } from '../../types/globalTypes';
+import { LogosGroup, TabsType } from './HeaderTypes';
 
 const getLogoImage = (theme: DisplayTheme, key: Tabs) => {
 	switch (key) {

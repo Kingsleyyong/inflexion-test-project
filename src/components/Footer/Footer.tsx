@@ -27,6 +27,7 @@ const Footer = ({ classname }: FooterProps) => {
 			<div className={style.linkDiv}>
 				{Object.values(Links).map((link) => (
 					<Link
+						key={link}
 						underline={'none'}
 						variant={'overline'}
 						fontWeight={400}

@@ -2,3 +2,12 @@ export enum DisplayTheme {
 	LIGHT,
 	DARK,
 }
+
+export enum Tabs {
+	VANDELAY_INDUSTRY = 'VANDELAY_INDUSTRY',
+	DASHBOARD = 'DASHBOARD',
+	PROFILE = 'PROFILE',
+	SIGNIN = 'SIGNIN',
+	SIGNUP = 'SIGNUP',
+	FREE_DOWNLOAD = 'FREE_DOWNLOAD',
+}

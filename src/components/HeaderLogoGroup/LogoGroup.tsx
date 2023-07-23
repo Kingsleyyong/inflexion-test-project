@@ -3,14 +3,17 @@ import { Typography, styled } from '@mui/material';
 import { DisplayTheme } from '../../types/globalTypes';
 import { LogosGroup, TabsType } from '../Header/HeaderTypes';
 import style from './LogoGroup.module.sass';
+import { NavLink } from 'react-router-dom';
 
 interface LogoGroupProp extends LogosGroup {
 	displayTheme: DisplayTheme;
+	tabPath: string;
 }
 
 const LogoGroup = ({
 	displayTheme,
 	logoImagePath,
+	tabPath,
 	title,
 	tabsType,
 }: LogoGroupProp) => {
@@ -47,7 +50,8 @@ const LogoGroup = ({
 		);
 	else
 		return (
-			<div
+			<NavLink
+				to={`/${tabPath}`}
 				key={title}
 				className={`${tabsType === TabsType.LOGO && style.mainLogo}  ${
 					style.logoGroup
@@ -61,7 +65,7 @@ const LogoGroup = ({
 				>
 					{title}
 				</NavTypography>
-			</div>
+			</NavLink>
 		);
 };
 

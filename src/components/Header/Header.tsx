@@ -5,7 +5,7 @@ import { useEffect, useState } from 'react';
 import style from './Header.module.sass';
 
 // Types
-import { LogosGroup } from './HeaderTypes.ts';
+import { LogosGroup, TabsTitleString } from './HeaderTypes.ts';
 import { DisplayTheme } from '../../types/globalTypes.ts';
 import LogoGroup from '../HeaderLogoGroup/LogoGroup.tsx';
 import { genarateLogosGroupArray } from './utils.ts';
@@ -29,7 +29,12 @@ const Header = ({ theme, className }: HeaderProps) => {
 					key={logoObj.title}
 					displayTheme={theme}
 					logoImagePath={logoObj.logoImagePath}
-					title={logoObj.title}
+					tabPath={logoObj.title}
+					title={
+						TabsTitleString[
+							logoObj.title as unknown as keyof typeof TabsTitleString
+						]
+					}
 					tabsType={logoObj.tabsType}
 				/>
 			))}

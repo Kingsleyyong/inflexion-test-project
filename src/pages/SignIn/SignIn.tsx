@@ -1,3 +1,5 @@
+import { Typography } from '@mui/material';
+import AuthorisationInputField from '../../components/AuthorisationInputField/AuthorisationInputField';
 import Footer from '../../components/Footer/Footer';
 import Header from '../../components/Header/Header';
 import { Images } from '../../constant/mockData';
@@ -16,6 +18,29 @@ const SignUp = () => {
 				src={Images.SignInPageBgImg}
 				alt="Sign In Background"
 			/>
+
+			<div className={style.signInBox}>
+				<div className={style.welcomeDiv}>
+					<Typography
+						variant={'h4'}
+						color={'primary'}
+						fontWeight={600}
+					>
+						Welcome Back
+					</Typography>
+
+					<Typography
+						variant={'overline'}
+						textTransform={'initial'}
+						fontWeight={700}
+						color={style.gray400}
+					>
+						Enter your email and password to sign in
+					</Typography>
+				</div>
+
+				<AuthorisationInputField />
+			</div>
 
 			<Footer classname={style.header} />
 		</div>

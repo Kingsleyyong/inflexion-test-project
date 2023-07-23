@@ -1,8 +1,22 @@
+import { lazy, Suspense } from 'react';
+import { createBrowserRouter, RouterProvider } from 'react-router-dom';
 import { ThemeProvider, createTheme, responsiveFontSizes } from '@mui/material';
-import Header from './components/Header/Header';
-import SignIn from './pages/SignIn/SignIn';
-import { DisplayTheme } from './types/globalTypes';
+//SASS
 import style from './App.module.sass';
+import Loading from './components/Loading/Loading';
+//Components
+const SignIn = lazy(() => import('./pages/SignIn/SignIn'));
+
+const router = createBrowserRouter([
+	{
+		path: '/sign-in',
+		element: (
+			<Suspense fallback={<Loading />}>
+				<SignIn />
+			</Suspense>
+		),
+	},
+]);
 
 function App() {
 	let theme = createTheme({
@@ -19,7 +33,7 @@ function App() {
 
 	return (
 		<ThemeProvider theme={theme}>
-			<SignIn />
+			<RouterProvider router={router} />
 		</ThemeProvider>
 	);
 }

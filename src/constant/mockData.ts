@@ -9,10 +9,11 @@ import SignInLight from '../assets/sign_in_light.svg';
 import SignInDark from '../assets/sign_in_dark.svg';
 import SignUpLight from '../assets/sign_up_light.svg';
 import SignUpDark from '../assets/sign_up_dark.svg';
-import SignInPageBgBanner from '../assets/sign-in-page-top-banner.svg';
-import AppleSignInLogo from '../assets/Apple.svg';
-import GoogleSignInLogo from '../assets/Google.svg';
-import FacebookSignInLogo from '../assets/Facebook.svg';
+import SignUpPageBgBanner from '../assets/sign-Up-page-top-banner.png';
+import AppleLogo from '../assets/Apple.svg';
+import GoogleLogo from '../assets/Google.svg';
+import FacebookLogo from '../assets/Facebook.svg';
+import SignInPageBgImg from '../assets/sign_in_bg.png';
 
 export const LogosImage = {
 	VandaleyIndustryLogoLight,
@@ -25,9 +26,9 @@ export const LogosImage = {
 	SignInDark,
 	SignUpLight,
 	SignUpDark,
-	AppleSignInLogo,
-	GoogleSignInLogo,
-	FacebookSignInLogo,
+	AppleLogo,
+	GoogleLogo,
+	FacebookLogo,
 };
 
-export const Images = { SignInPageBgBanner };
+export const Images = { SignUpPageBgBanner, SignInPageBgImg };

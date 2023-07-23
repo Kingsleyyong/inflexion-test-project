@@ -4,10 +4,16 @@ import { ThemeProvider, createTheme, responsiveFontSizes } from '@mui/material';
 //SASS
 import style from './App.module.sass';
 import Loading from './components/Loading/Loading';
+import ErrorPage from './components/Error/Error';
 //Components
 const SignIn = lazy(() => import('./pages/SignIn/SignIn'));
 
 const router = createBrowserRouter([
+	{
+		path: '/',
+		element: <ErrorPage />,
+		errorElement: <ErrorPage />,
+	},
 	{
 		path: '/sign-in',
 		element: (

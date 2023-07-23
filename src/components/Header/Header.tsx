@@ -22,10 +22,11 @@ const Header = ({ theme }: HeaderProps) => {
 	}, [theme]);
 
 	return (
-		<div className={style.headerBox}>
+		<div data-theme={theme} className={style.headerBox}>
 			{logosGroup.map((logoObj) => (
 				<LogoGroup
 					key={logoObj.title}
+					theme={theme}
 					logoImagePath={logoObj.logoImagePath}
 					title={logoObj.title}
 					tabsType={logoObj.tabsType}

@@ -10,6 +10,8 @@ import style from './PageWrapperHeader.module.sass';
 import { MainPageNavTabs, Tabs } from '../../types/globalTypes';
 import { SearchOutlined } from '@mui/icons-material';
 import PersonIcon from '@mui/icons-material/Person';
+import SettingsIcon from '@mui/icons-material/Settings';
+import NotificationsIcon from '@mui/icons-material/Notifications';
 
 interface PageWrapperHeaderProps {
 	pageTitle: MainPageNavTabs;
@@ -21,6 +23,7 @@ const PageWrapperHeader = ({ pageTitle }: PageWrapperHeaderProps) => {
 				'linear-gradient(0deg, #FFFFFF, #FFFFFF),linear-gradient(0deg, #E2E8F0, #E2E8F0)',
 			border: '0.5px solid rgba(226, 232, 240, 1)',
 			borderRadius: '15px',
+			marginRight: '3%',
 		},
 	});
 
@@ -50,9 +53,8 @@ const PageWrapperHeader = ({ pageTitle }: PageWrapperHeaderProps) => {
 				</Typography>
 			</div>
 
-			<div>
+			<div className={style.rightButtons}>
 				<CustomiseTextField
-					fullWidth
 					size="small"
 					variant="outlined"
 					placeholder={'Type here...'}
@@ -65,9 +67,19 @@ const PageWrapperHeader = ({ pageTitle }: PageWrapperHeaderProps) => {
 					}}
 				/>
 
-				<Link href={`/pages/${Tabs.SIGNIN}`}>
+				<Link
+					href={`/pages/${Tabs.SIGNIN}`}
+					className={style.theButton}
+				>
 					<PersonIcon />
 					<Typography variant={'caption'}>Sign In</Typography>
+				</Link>
+
+				<Link className={style.theButton}>
+					<SettingsIcon />
+				</Link>
+				<Link className={style.theButton}>
+					<NotificationsIcon />
 				</Link>
 			</div>
 		</div>

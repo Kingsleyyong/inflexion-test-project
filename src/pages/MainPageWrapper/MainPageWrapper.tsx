@@ -11,7 +11,10 @@ import { TabsTitleString } from '../../components/Header/HeaderTypes';
 import { useState } from 'react';
 import ChildBoxNavLink from './ChildBoxNavLink';
 
-const MainPageWrapper = () => {
+interface MainPageWrapperProps {
+	children: React.ReactNode;
+}
+const MainPageWrapper = ({ children }: MainPageWrapperProps) => {
 	const [selectedPage, setSelectedPage] = useState<MainPageNavTabs>(
 		MainPageNavTabs.DASHBOARD,
 	);
@@ -95,6 +98,8 @@ const MainPageWrapper = () => {
 					</Button>
 				</div>
 			</div>
+
+			{children}
 		</div>
 	);
 };

@@ -20,6 +20,7 @@ const Header = ({ theme, className }: HeaderProps) => {
 
 	useEffect(() => {
 		setLogosGroup(genarateLogosGroupArray(theme));
+		console.log(genarateLogosGroupArray(theme));
 	}, [theme]);
 
 	return (

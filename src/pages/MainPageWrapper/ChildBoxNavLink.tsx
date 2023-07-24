@@ -29,7 +29,14 @@ const ChildBoxNavLink = ({
 			onClick={() => setSelectedPage(nav.title)}
 		>
 			<div className={style.logoBox}>
-				<img src={nav.selectedImage} alt={nav.title} />
+				<img
+					src={
+						selectedPage === nav.title
+							? nav.selectedImage
+							: nav.defaultImage
+					}
+					alt={nav.title}
+				/>
 			</div>
 
 			<Typography

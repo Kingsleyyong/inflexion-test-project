@@ -15,7 +15,11 @@ interface FooterProps {
 const Footer = ({ classname }: FooterProps) => {
 	return (
 		<div className={`${classname} ${style.footerDiv}`}>
-			<Typography variant={'caption'} color={style.gray400}>
+			<Typography
+				variant={'caption'}
+				color={style.gray400}
+				fontWeight={'fontWeightLight'}
+			>
 				© 2022, Made with ❤️ by
 				<Link href={''} underline={'none'}>
 					{' '}
@@ -30,12 +34,17 @@ const Footer = ({ classname }: FooterProps) => {
 						key={link}
 						underline={'none'}
 						variant={'overline'}
-						fontWeight={400}
 						textTransform={'initial'}
 						color={style.gray400}
 						href={''}
 					>
-						{link}
+						<Typography
+							variant={'caption'}
+							color={style.gray400}
+							fontWeight={'fontWeightLight'}
+						>
+							{link}
+						</Typography>
 					</Link>
 				))}
 			</div>

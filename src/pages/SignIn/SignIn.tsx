@@ -21,18 +21,14 @@ const SignUp = () => {
 
 			<div className={style.signInBox}>
 				<div className={style.welcomeDiv}>
-					<Typography
-						variant={'h4'}
-						color={'primary'}
-						fontWeight={600}
-					>
+					<Typography variant={'h4'} color={'primary'}>
 						Welcome Back
 					</Typography>
 
 					<Typography
 						variant={'overline'}
 						textTransform={'initial'}
-						fontWeight={700}
+						fontWeight={'fontWeightMedium'}
 						color={style.gray400}
 					>
 						Enter your email and password to sign in

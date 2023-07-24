@@ -35,7 +35,7 @@ const AuthorisationInputField = () => {
 							color={style.gray700}
 							ml={1}
 							lineHeight={2}
-							fontWeight={400}
+							fontWeight={'fontWeightLight'}
 						>
 							{key}
 						</Typography>
@@ -49,6 +49,7 @@ const AuthorisationInputField = () => {
 								borderRadius: '15px',
 								width: '100%',
 								height: '50%',
+								fontWeight: '400',
 								marginBottom:
 									location.pathname === '/sign-in'
 										? '5%'
@@ -70,7 +71,7 @@ const AuthorisationInputField = () => {
 					label={
 						<Typography
 							variant={'body2'}
-							fontWeight={400}
+							fontWeight={'fontWeightLight'}
 							color={style.gray700}
 						>
 							Remember me
@@ -91,7 +92,7 @@ const AuthorisationInputField = () => {
 			<div className={style.center}>
 				<Typography
 					variant={'overline'}
-					fontWeight={400}
+					fontWeight={'fontWeightLight'}
 					textTransform={'initial'}
 					color={style.gray400}
 				>

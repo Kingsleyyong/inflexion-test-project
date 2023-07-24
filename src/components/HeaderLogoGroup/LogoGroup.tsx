@@ -1,9 +1,10 @@
 // SASS
 import { Typography, styled } from '@mui/material';
-import { DisplayTheme } from '../../types/globalTypes';
+import { DisplayTheme, MainPageNavTabs } from '../../types/globalTypes';
 import { LogosGroup, TabsType } from '../Header/HeaderTypes';
 import style from './LogoGroup.module.sass';
 import { NavLink } from 'react-router-dom';
+import { filterPath } from '../../constant/utils';
 
 interface LogoGroupProp extends LogosGroup {
 	displayTheme: DisplayTheme;
@@ -51,7 +52,7 @@ const LogoGroup = ({
 	else
 		return (
 			<NavLink
-				to={`/${tabPath}`}
+				to={filterPath(tabPath as MainPageNavTabs)}
 				key={title}
 				className={`${tabsType === TabsType.LOGO && style.mainLogo}  ${
 					style.logoGroup

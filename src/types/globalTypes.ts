@@ -11,3 +11,19 @@ export enum Tabs {
 	SIGNUP = 'SIGNUP',
 	FREE_DOWNLOAD = 'FREE_DOWNLOAD',
 }
+
+export enum MainPageNavTabs {
+	DASHBOARD = 'DASHBOARD',
+	TABLES = 'TABLES',
+	BILLING = 'BILLING',
+	RTL = 'RTL',
+	PROFILE = 'PROFILE',
+	SIGNIN = 'SIGN IN',
+	SIGNUP = 'SIGN UP',
+}
+
+export interface MainPageNavTabsType {
+	title: MainPageNavTabs;
+	defaultImage: string;
+	selectedImage: string;
+}

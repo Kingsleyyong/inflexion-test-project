@@ -26,7 +26,7 @@ export default function ErrorPage() {
 				</Typography>
 			</p>
 
-			<Button href={`/${Tabs.SIGNIN}`}>Back to Dashboard</Button>
+			<Button href={`/pages/${Tabs.DASHBOARD}`}>Back to Dashboard</Button>
 		</div>
 	);
 }

@@ -4,11 +4,12 @@ import { ThemeProvider, createTheme, responsiveFontSizes } from '@mui/material';
 //SASS
 import style from './App.module.sass';
 import { Tabs } from './types/globalTypes';
+import MainPageWrapper from './pages/MainPageWrapper/MainPageWrapper';
+import Loading from './components/Loading/Loading';
 
 //Components
 const SignIn = lazy(() => import('./pages/SignIn/SignIn'));
 const SignUp = lazy(() => import('./pages/SignUp/SignUp'));
-const Loading = lazy(() => import('./components/Loading/Loading'));
 const ErrorPage = lazy(() => import('./components/Error/Error'));
 
 const router = createBrowserRouter([
@@ -33,6 +34,14 @@ const router = createBrowserRouter([
 			</Suspense>
 		),
 	},
+	{
+		path: `/pages/${Tabs.DASHBOARD}`,
+		element: (
+			<Suspense fallback={<Loading />}>
+				<MainPageWrapper />
+			</Suspense>
+		),
+	},
 ]);
 
 function App() {
@@ -43,6 +52,9 @@ function App() {
 		palette: {
 			primary: {
 				main: style.teal300,
+			},
+			secondary: {
+				main: style.white,
 			},
 		},
 	});

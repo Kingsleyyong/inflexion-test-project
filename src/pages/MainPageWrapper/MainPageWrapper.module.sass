@@ -1,0 +1,73 @@
+@import './src/global/_global.sass'
+
+.parentBox
+    @include flexCenter
+    width: 100%
+    height: 100%
+    background-color: $lightGray
+
+.leftNavBar
+    flex-grow: 0
+    width: 20%
+    height: 100% 
+
+.navBarChildBox
+    @include flexCenter
+    margin: 10% 0 5% 0
+    color: $gray700
+
+.hrLine
+    margin: 5% 0
+    border: none
+    width: 100%
+    height: 1px
+    background: linear-gradient(90deg, rgba(224, 225, 226, 0) 0%, #E0E1E2 49.52%, rgba(224, 225, 226, 0.15625) 99.04%)
+
+.clickableNavChildBox
+    @include flexCenter
+    padding: 5% 4%
+    justify-content: flex-start
+    border-radius: 15px
+    width: 60%
+    text-decoration: none
+    margin-left: auto
+    margin-right: auto
+
+    &:hover
+        background-color: rgba($gray400, 0.2)
+    
+.selectedNavChildBox
+    background-color: $white
+    box-shadow: 0px 3.500000238418579px 5.500000476837158px 0px rgba(0, 0, 0, 0.02)
+
+.logoBox
+    @include flexCenter
+    position: relative
+    width: 10%
+    border-radius: 10px
+    background: $white
+
+    img
+        width: 100%
+        height: 100%
+        box-shadow: 0px 3.500000238418579px 5.500000476837158px 0px rgba(0, 0, 0, 0.02)
+
+
+.logoBox:before
+    content:''
+    display: block
+    padding-bottom: 100%
+
+.helpDiv
+    margin: 20% auto
+    padding: 7%
+    width: 70%
+    height: 15%
+    border-radius: 15px
+    background: url('../../assets/help_background.png') no-repeat
+    background-size: 100% 100%
+
+:export
+    white: $white
+    gray400: $gray400
+    gray700: $gray700

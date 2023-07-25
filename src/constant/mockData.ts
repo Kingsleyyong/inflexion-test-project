@@ -31,8 +31,22 @@ import SignIn from '../assets/sign_in.svg';
 import SignUp from '../assets/sign_up.svg';
 import Tables from '../assets/tables.svg';
 import HelpBg from '../assets/help_background.png';
+import Wallet from '../assets/wallet.svg';
+import Earth from '../assets/earth.svg';
+import Documents from '../assets/documents.svg';
+import Cart from '../assets/cart.svg';
+
+import ChakraImage from '../assets/chakra_image.png';
+import SamepleBackground from '../assets/sample_image.png';
+
 //Types
-import { MainPageNavTabs, MainPageNavTabsType } from '../types/globalTypes';
+import {
+	AmountUnit,
+	Coordinate,
+	GridItem,
+	MainPageNavTabs,
+	MainPageNavTabsType,
+} from '../types/globalTypes';
 
 export const LogosImage = {
 	VandaleyIndustryLogoLight,
@@ -48,9 +62,19 @@ export const LogosImage = {
 	AppleLogo,
 	GoogleLogo,
 	FacebookLogo,
+	Wallet,
+	Earth,
+	Documents,
+	Cart,
 };
 
-export const Images = { SignUpPageBgBanner, SignInPageBgImg, HelpBg };
+export const Images = {
+	SignUpPageBgBanner,
+	SignInPageBgImg,
+	HelpBg,
+	ChakraImage,
+	SamepleBackground,
+};
 
 export const MainPageNavLogo = {
 	Billing,
@@ -108,5 +132,136 @@ export const AccountPages: MainPageNavTabsType[] = [
 		title: MainPageNavTabs.SIGNUP,
 		defaultImage: MainPageNavLogo.SignUp,
 		selectedImage: MainPageNavLogo.SelectedSignUp,
+	},
+];
+
+const gridWidth = {
+	xs: 6,
+	sm: 3,
+};
+
+export const DashboardGridItem: GridItem[] = [
+	{
+		cardInformation: {
+			subtitile: "Today's Money",
+			amount: 53000,
+			amountUnit: AmountUnit.DOLLAR,
+			percentage: { number: 55, increase: true },
+			imagePath: LogosImage.Wallet,
+		},
+		gridWidth,
+	},
+	{
+		cardInformation: {
+			subtitile: "Today's Users",
+			amount: 2300,
+			amountUnit: AmountUnit.USER_NUMBER,
+			percentage: { number: 5, increase: true },
+			imagePath: LogosImage.Earth,
+		},
+		gridWidth,
+	},
+	{
+		cardInformation: {
+			subtitile: 'New Clients',
+			amount: 3052,
+			amountUnit: AmountUnit.ClIENT_INCREASE,
+			percentage: { number: 14, increase: false },
+			imagePath: LogosImage.Documents,
+		},
+		gridWidth,
+	},
+	{
+		cardInformation: {
+			subtitile: 'Total Sales',
+			amount: 17300,
+			amountUnit: AmountUnit.DOLLAR,
+			percentage: { number: 8, increase: true },
+			imagePath: LogosImage.Cart,
+		},
+		gridWidth,
+	},
+
+	{
+		cardInformation: {
+			caption: 'Build by developers',
+			title: 'Purity UI Dashboard',
+			description: {
+				text: `From colors, cards, typography to complex elements,
+			\n you will find the full documentation.`,
+			},
+			readMoreOption: true,
+			image: {
+				path: Images.ChakraImage,
+				coordinate: Coordinate.RIGHT,
+			},
+		},
+		gridWidth: { xs: 12, sm: 7 },
+	},
+	{
+		cardInformation: {
+			title: 'Work with the Rockets',
+			description: {
+				text: `Wealth creation is an evolutionarily recent positive-sum game.\n
+			It is all about who take the opportunity first.`,
+			},
+			readMoreOption: true,
+			image: {
+				path: Images.SamepleBackground,
+				coordinate: Coordinate.FULL_SCREEN,
+			},
+		},
+		gridWidth: { xs: 12, sm: 5 },
+	},
+	{
+		cardInformation: {
+			title: 'Active Users',
+			description: {
+				greenText: true,
+				highlightText: '(+23)',
+				text: `than last week`,
+			},
+			readMoreOption: false,
+		},
+		gridWidth: { xs: 12, sm: 5 },
+	},
+	{
+		cardInformation: {
+			title: 'Sales overview',
+			description: {
+				greenText: true,
+				highlightText: '(+5) more',
+				text: `in 2021`,
+			},
+			readMoreOption: false,
+		},
+		// children: Node,
+		gridWidth: { xs: 12, sm: 7 },
+	},
+	{
+		cardInformation: {
+			title: 'Projects',
+			description: {
+				greenText: false,
+				highlightText: '30 done',
+				text: `this month`,
+			},
+			readMoreOption: false,
+		},
+		// children: Node,
+		gridWidth: { xs: 12, sm: 8 },
+	},
+	{
+		cardInformation: {
+			title: 'Orders overview',
+			description: {
+				greenText: true,
+				highlightText: '+30%',
+				text: `this month`,
+			},
+			readMoreOption: false,
+		},
+		// children: Node,
+		gridWidth: { xs: 12, sm: 4 },
 	},
 ];

@@ -1,0 +1,48 @@
+@import './src/global/_global.sass'
+  
+.cardBox
+    @include flexCenter
+    align-items: flex-start
+    justify-content: space-between
+    position: relative
+    border-radius: 15px
+    background-color: $white
+    box-shadow: 0px 3.500000238418579px 5.500000476837158px 0px rgba(0, 0, 0, 0.02)
+    height: 100%
+
+.mockInfoDiv
+    width: 100%
+    height: auto
+    margin: 1rem
+    z-index: 1
+
+.rightImage
+    width: 30%
+    height: auto
+    border-radius: 15px
+    align-self: center
+    margin: 3%
+
+.fullImage
+    position: absolute
+    left: 0
+    top: 0
+    width: 100%
+    height: 100%
+    z-index: 0
+    border-radius: 15px
+
+.gradientOverlay
+    background: linear-gradient(360deg, rgba(49, 56, 96, 0.16) 0%, rgba(21, 25, 40, 0.88) 100%)
+
+.descriptionBox
+    @include flexCenter
+    justify-content: flex-start
+    align-items: flex-start
+    width: 100%
+    height: 100%
+
+:export
+    white: $white
+    gray400: $gray400
+    green400: $green400

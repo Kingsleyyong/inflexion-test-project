@@ -52,7 +52,7 @@ const MainPageWrapper = ({ children }: MainPageWrapperProps) => {
 					variant={'body1'}
 					textTransform={'capitalize'}
 					fontWeight={700}
-					m={'3% 20%'}
+					m={'3% 10%'}
 				>
 					Account Pages
 				</Typography>
@@ -99,7 +99,7 @@ const MainPageWrapper = ({ children }: MainPageWrapperProps) => {
 				</div>
 			</div>
 
-			{children}
+			<div className={style.fixedPosition}>{children}</div>
 		</div>
 	);
 };

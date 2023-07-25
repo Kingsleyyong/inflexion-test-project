@@ -27,3 +27,49 @@ export interface MainPageNavTabsType {
 	defaultImage: string;
 	selectedImage: string;
 }
+
+export enum AmountUnit {
+	DOLLAR = '$',
+	USER_NUMBER = '',
+	ClIENT_INCREASE = '+',
+}
+
+export interface DashboardCardElement {
+	subtitile: string;
+	percentage: {
+		number: number;
+		increase: boolean;
+	};
+	amount: number;
+	amountUnit: AmountUnit;
+	imagePath: string;
+}
+export enum Coordinate {
+	RIGHT,
+	FULL_SCREEN,
+}
+
+export interface DashBoardMainCard {
+	caption?: string;
+	title: string;
+	description: {
+		greenText?: boolean;
+		highlightText?: string;
+		text: string;
+	};
+	readMoreOption: boolean;
+	image?: {
+		path: string;
+		coordinate: Coordinate;
+	};
+	children?: React.ReactNode | React.ReactNode[];
+}
+
+export interface GridItem {
+	cardInformation: DashboardCardElement | DashBoardMainCard;
+	gridWidth: {
+		xs: number; //xtra small
+		sm: number; //small
+		md?: number; //medium
+	};
+}

@@ -8,17 +8,18 @@ import CheckCircleIcon from '@mui/icons-material/CheckCircle';
 import EastIcon from '@mui/icons-material/East';
 import style from './MainCardboard.module.sass';
 import { Fragment } from 'react';
+import Card from '../ActiveUsersCard/Card';
 
 interface MainCardboardProp {
 	cardInformation: DashBoardMainCard | DashboardCardElement;
 }
 const MainCardboard = ({ cardInformation }: MainCardboardProp) => {
-	const { caption, title, description, readMoreOption, image, children } =
+	const { caption, title, description, readMoreOption, image, ChildNode } =
 		cardInformation as DashBoardMainCard;
 
 	return (
 		<div className={style.cardBox}>
-			{Array.isArray(children) && children[0]}
+			{ChildNode && ChildNode.top && <ChildNode.top />}
 
 			<div className={style.horizontalFlex}>
 				<div className={style.mockInfoDiv}>
@@ -124,7 +125,7 @@ const MainCardboard = ({ cardInformation }: MainCardboardProp) => {
 				)}
 			</div>
 
-			{Array.isArray(children) ? children[0] : children}
+			{ChildNode && <ChildNode.bottom />}
 		</div>
 	);
 };

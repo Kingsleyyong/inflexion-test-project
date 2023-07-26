@@ -1,3 +1,5 @@
+import { ReactNode } from 'react';
+
 export enum DisplayTheme {
 	LIGHT,
 	DARK,
@@ -62,7 +64,10 @@ export interface DashBoardMainCard {
 		path: string;
 		coordinate: Coordinate;
 	};
-	children?: React.ReactNode | React.ReactNode[];
+	ChildNode?: {
+		top?: () => JSX.Element;
+		bottom: () => JSX.Element;
+	};
 }
 
 export interface GridItem {
@@ -72,4 +77,14 @@ export interface GridItem {
 		sm: number; //small
 		md?: number; //medium
 	};
+}
+
+export interface ActiveUserCardData {
+	img: string;
+	capTitle: string;
+	value: {
+		number: number;
+		unit?: string;
+	};
+	linearProgress: number;
 }

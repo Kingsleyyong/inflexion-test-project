@@ -35,9 +35,14 @@ import Wallet from '../assets/wallet.svg';
 import Earth from '../assets/earth.svg';
 import Documents from '../assets/documents.svg';
 import Cart from '../assets/cart.svg';
+import SmallRocket from '../assets/small_rocket.svg';
+import SmallSettings from '../assets/small_settings.svg';
+import SmallCart from '../assets/small_cart.svg';
+import SmallWallet from '../assets/small_wallet.svg';
 
 import ChakraImage from '../assets/chakra_image.png';
-import SamepleBackground from '../assets/sample_image.png';
+import SampleBackground from '../assets/sample_image.png';
+import DummyGraph from '../assets/DummyGraph.svg';
 
 //Types
 import {
@@ -47,6 +52,9 @@ import {
 	MainPageNavTabs,
 	MainPageNavTabsType,
 } from '../types/globalTypes';
+
+//Components
+import Card from '../components/ActiveUsersCard/Card';
 
 export const LogosImage = {
 	VandaleyIndustryLogoLight,
@@ -66,6 +74,10 @@ export const LogosImage = {
 	Earth,
 	Documents,
 	Cart,
+	SmallRocket,
+	SmallSettings,
+	SmallCart,
+	SmallWallet,
 };
 
 export const Images = {
@@ -73,7 +85,7 @@ export const Images = {
 	SignInPageBgImg,
 	HelpBg,
 	ChakraImage,
-	SamepleBackground,
+	SampleBackground,
 };
 
 export const MainPageNavLogo = {
@@ -207,7 +219,7 @@ export const DashboardGridItem: GridItem[] = [
 			},
 			readMoreOption: true,
 			image: {
-				path: Images.SamepleBackground,
+				path: Images.SampleBackground,
 				coordinate: Coordinate.FULL_SCREEN,
 			},
 		},
@@ -222,6 +234,9 @@ export const DashboardGridItem: GridItem[] = [
 				text: `than last week`,
 			},
 			readMoreOption: false,
+			ChildNode: {
+				bottom: Card,
+			},
 		},
 		gridWidth: { xs: 12, sm: 5 },
 	},
@@ -263,5 +278,42 @@ export const DashboardGridItem: GridItem[] = [
 		},
 		// children: Node,
 		gridWidth: { xs: 12, sm: 4 },
+	},
+];
+
+export const ActiveUserCardData = [
+	{
+		img: LogosImage.SmallWallet,
+		captionTitle: 'Users',
+		value: {
+			number: 32984,
+		},
+		linearProgress: 0.6,
+	},
+	{
+		img: LogosImage.SmallRocket,
+		captionTitle: 'Clicks',
+		value: {
+			number: 242000,
+		},
+		linearProgress: 0.8,
+	},
+	{
+		img: LogosImage.SmallCart,
+		captionTitle: 'Sales',
+		value: {
+			number: 2400,
+			unit: '$',
+		},
+		linearProgress: 0.4,
+	},
+	{
+		img: LogosImage.SmallSettings,
+		captionTitle: 'Items',
+		value: {
+			number: 320,
+			unit: '$',
+		},
+		linearProgress: 0.5,
 	},
 ];

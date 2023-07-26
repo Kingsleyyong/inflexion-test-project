@@ -42,7 +42,6 @@ import SmallWallet from '../assets/small_wallet.svg';
 
 import ChakraImage from '../assets/chakra_image.png';
 import SampleBackground from '../assets/sample_image.png';
-import DummyGraph from '../assets/DummyGraph.svg';
 
 //Types
 import {

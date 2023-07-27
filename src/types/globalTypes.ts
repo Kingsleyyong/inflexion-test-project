@@ -1,4 +1,9 @@
-import { ReactNode } from 'react';
+import {
+	Status,
+	Table1Keys,
+	Table2Keys,
+	Table3Keys,
+} from '../constant/TablesMockData';
 
 export enum DisplayTheme {
 	LIGHT,
@@ -66,7 +71,8 @@ export interface DashBoardMainCard {
 	};
 	ChildNode?: {
 		top?: () => JSX.Element;
-		bottom: () => JSX.Element;
+		bottom?: () => JSX.Element;
+		tableData?: Tables;
 	};
 }
 
@@ -87,4 +93,33 @@ export interface ActiveUserCardData {
 		unit?: string;
 	};
 	linearProgress: number;
+}
+
+export interface Tables {
+	editable?: boolean;
+	settingButton?: boolean;
+	header: string[];
+	dataRow:
+		| {
+				[Table1Keys.Companies]: { img: string; text: string };
+				[Table1Keys.Members]: string[];
+				[Table1Keys.Budget]: number | null;
+				[Table1Keys.Completion]: number;
+		  }[]
+		| {
+				[Table2Keys.Author]: {
+					img: string;
+					text: string;
+					subText: string;
+				};
+				[Table2Keys.Function]: { text: string; subText: string };
+				[Table2Keys.Status]: Status;
+				[Table2Keys.Employed]: { text: string };
+		  }[]
+		| {
+				[Table3Keys.Companies]: { img: string; text: string };
+				[Table3Keys.Budget]: number | null;
+				[Table3Keys.Status]: Status;
+				[Table3Keys.Completion]: number;
+		  }[];
 }

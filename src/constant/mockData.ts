@@ -40,6 +40,13 @@ import SmallSettings from '../assets/small_settings.svg';
 import SmallCart from '../assets/small_cart.svg';
 import SmallWallet from '../assets/small_wallet.svg';
 
+import AtlassianLogo from '../assets/Atlassian.svg';
+import JiraLogo from '../assets/Jira.svg';
+import SpotifyLogo from '../assets/Spotify.svg';
+import StackLogo from '../assets/Stack.svg';
+import AdobeXDLogo from '../assets/AdobeXD.svg';
+import DesignLogo from '../assets/Design.svg';
+
 import ChakraImage from '../assets/chakra_image.png';
 import SampleBackground from '../assets/sample_image.png';
 
@@ -54,6 +61,7 @@ import {
 
 //Components
 import Card from '../components/ActiveUsersCard/Card';
+import { Table1 } from './TablesMockData';
 
 export const LogosImage = {
 	VandaleyIndustryLogoLight,
@@ -77,6 +85,12 @@ export const LogosImage = {
 	SmallSettings,
 	SmallCart,
 	SmallWallet,
+	AtlassianLogo,
+	JiraLogo,
+	SpotifyLogo,
+	StackLogo,
+	AdobeXDLogo,
+	DesignLogo,
 };
 
 export const Images = {
@@ -261,6 +275,9 @@ export const DashboardGridItem: GridItem[] = [
 				text: `this month`,
 			},
 			readMoreOption: false,
+			ChildNode: {
+				tableData: Table1,
+			},
 		},
 		// children: Node,
 		gridWidth: { xs: 12, sm: 8 },

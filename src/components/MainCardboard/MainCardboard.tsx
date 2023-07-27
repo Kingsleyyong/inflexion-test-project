@@ -3,12 +3,13 @@ import {
 	Coordinate,
 	DashBoardMainCard,
 	DashboardCardElement,
+	Tables,
 } from '../../types/globalTypes';
 import CheckCircleIcon from '@mui/icons-material/CheckCircle';
 import EastIcon from '@mui/icons-material/East';
 import style from './MainCardboard.module.sass';
 import { Fragment } from 'react';
-import Card from '../ActiveUsersCard/Card';
+import Table from '../TablesWrapper/Table';
 
 interface MainCardboardProp {
 	cardInformation: DashBoardMainCard | DashboardCardElement;
@@ -125,7 +126,8 @@ const MainCardboard = ({ cardInformation }: MainCardboardProp) => {
 				)}
 			</div>
 
-			{ChildNode && <ChildNode.bottom />}
+			{ChildNode?.bottom && <ChildNode.bottom />}
+			{ChildNode?.tableData && <Table tableData={ChildNode.tableData} />}
 		</div>
 	);
 };

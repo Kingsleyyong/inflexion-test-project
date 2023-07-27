@@ -4,6 +4,15 @@ import Avatar3 from '../assets/Avatar 3.png';
 import Avatar4 from '../assets/Avatar 4.png';
 import Avatar5 from '../assets/Avatar 5.png';
 
+import AtlassianLogo from '../assets/Atlassian.svg';
+import JiraLogo from '../assets/Jira.svg';
+import SpotifyLogo from '../assets/Spotify.svg';
+import StackLogo from '../assets/Stack.svg';
+import AdobeXDLogo from '../assets/AdobeXD.svg';
+import DesignLogo from '../assets/Design.svg';
+
+import { Tables } from '../types/globalTypes';
+
 const Avatars = [Avatar1, Avatar2, Avatar3, Avatar4, Avatar5];
 
 export enum Status {
@@ -34,57 +43,69 @@ export enum Table3Keys {
 	Status = 'Status',
 	Completion = 'Completion',
 }
-export const Table1 = {
+export const Table1: Tables = {
 	header: Object.keys(Table1Keys),
 	dataRow: [
 		{
-			[Table1Keys.Companies]: { img: '', text: 'Chakra Soft UI Version' },
-			[Table1Keys.Members]: Avatars,
+			[Table1Keys.Companies]: {
+				img: AdobeXDLogo,
+				text: 'Chakra Soft UI Version',
+			},
+			[Table1Keys.Members]: structuredClone(Avatars),
 			[Table1Keys.Budget]: 14000,
 			[Table1Keys.Completion]: 60,
 		},
 		{
-			[Table1Keys.Companies]: { img: '', text: 'Add Progress Track' },
-			[Table1Keys.Members]: Avatars.splice(0, 2),
+			[Table1Keys.Companies]: {
+				img: AtlassianLogo,
+				text: 'Add Progress Track',
+			},
+			[Table1Keys.Members]: structuredClone(Avatars).splice(0, 2),
 			[Table1Keys.Budget]: 3000,
 			[Table1Keys.Completion]: 10,
 		},
 		{
-			[Table1Keys.Companies]: { img: '', text: 'Fix Platform Errors' },
-			[Table1Keys.Members]: Avatars.splice(0, 2),
+			[Table1Keys.Companies]: {
+				img: StackLogo,
+				text: 'Fix Platform Errors',
+			},
+			[Table1Keys.Members]: structuredClone(Avatars).splice(0, 2),
 			[Table1Keys.Budget]: null,
 			[Table1Keys.Completion]: 100,
 		},
 		{
-			[Table1Keys.Companies]: { img: '', text: 'Launch Our Mobile App' },
-			[Table1Keys.Members]: Avatars.splice(0, 4),
+			[Table1Keys.Companies]: {
+				img: SpotifyLogo,
+				text: 'Launch Our Mobile App',
+			},
+			[Table1Keys.Members]: structuredClone(Avatars).splice(0, 4),
 			[Table1Keys.Budget]: 32000,
 			[Table1Keys.Completion]: 100,
 		},
 		{
 			[Table1Keys.Companies]: {
-				img: '',
+				img: JiraLogo,
 				text: 'Add the New Pricing Page',
 			},
-			[Table1Keys.Members]: Avatars,
+			[Table1Keys.Members]: structuredClone(Avatars),
 			[Table1Keys.Budget]: 400,
 			[Table1Keys.Completion]: 25,
 		},
 		{
 			[Table1Keys.Companies]: {
-				img: '',
+				img: DesignLogo,
 				text: 'Redesign New Online Shop',
 			},
-			[Table1Keys.Members]: Avatars.splice(2),
+			[Table1Keys.Members]: structuredClone(Avatars).splice(2),
 			[Table1Keys.Budget]: 7600,
 			[Table1Keys.Completion]: 40,
 		},
 	],
 };
 
-export const Table2 = {
+export const Table2: Tables = {
 	editable: true,
-	header: Object.keys(Table2Keys).push(''),
+	header: Object.keys(Table2Keys),
 	dataRow: [
 		{
 			[Table2Keys.Author]: {
@@ -94,7 +115,7 @@ export const Table2 = {
 			},
 			[Table2Keys.Function]: { text: 'Manager', subText: 'Organization' },
 			[Table2Keys.Status]: Status.Online,
-			[Table2Keys.Employed]: '14/06/21',
+			[Table2Keys.Employed]: { text: '14/06/21' },
 		},
 		{
 			[Table2Keys.Author]: {
@@ -107,7 +128,7 @@ export const Table2 = {
 				subText: 'Developer',
 			},
 			[Table2Keys.Status]: Status.Offline,
-			[Table2Keys.Employed]: '14/06/21',
+			[Table2Keys.Employed]: { text: '14/06/21' },
 		},
 		{
 			[Table2Keys.Author]: {
@@ -120,7 +141,7 @@ export const Table2 = {
 				subText: 'Projects',
 			},
 			[Table2Keys.Status]: Status.Online,
-			[Table2Keys.Employed]: '14/06/21',
+			[Table2Keys.Employed]: { text: '14/06/21' },
 		},
 		{
 			[Table2Keys.Author]: {
@@ -130,7 +151,7 @@ export const Table2 = {
 			},
 			[Table2Keys.Function]: { text: 'Manager', subText: 'Organization' },
 			[Table2Keys.Status]: Status.Online,
-			[Table2Keys.Employed]: '14/06/21',
+			[Table2Keys.Employed]: { text: '14/06/21' },
 		},
 		{
 			[Table2Keys.Author]: {
@@ -143,7 +164,7 @@ export const Table2 = {
 				subText: 'Developer',
 			},
 			[Table2Keys.Status]: Status.Offline,
-			[Table2Keys.Employed]: '14/06/21',
+			[Table2Keys.Employed]: { text: '14/06/21' },
 		},
 		{
 			[Table2Keys.Author]: {
@@ -156,41 +177,53 @@ export const Table2 = {
 				subText: 'UI/UX Design',
 			},
 			[Table2Keys.Status]: Status.Offline,
-			[Table2Keys.Employed]: '14/06/21',
+			[Table2Keys.Employed]: { text: '14/06/21' },
 		},
 	],
 };
-export const Table3 = {
+export const Table3: Tables = {
 	settingButton: true,
-	header: Object.keys(Table3Keys).push(''),
+	header: Object.keys(Table3Keys),
 	dataRow: [
 		{
-			[Table3Keys.Companies]: { img: '', text: 'Chakra Soft UI Version' },
+			[Table3Keys.Companies]: {
+				img: AdobeXDLogo,
+				text: 'Chakra Soft UI Version',
+			},
 			[Table3Keys.Budget]: 14000,
 			[Table3Keys.Status]: Status.Working,
 			[Table3Keys.Completion]: 60,
 		},
 		{
-			[Table3Keys.Companies]: { img: '', text: 'Add Progress Track' },
+			[Table3Keys.Companies]: {
+				img: AtlassianLogo,
+				text: 'Add Progress Track',
+			},
 			[Table3Keys.Budget]: 3000,
 			[Table3Keys.Status]: Status.Cancelled,
 			[Table3Keys.Completion]: 10,
 		},
 		{
-			[Table3Keys.Companies]: { img: '', text: 'Fix Platform Errors' },
+			[Table3Keys.Companies]: {
+				img: StackLogo,
+				text: 'Fix Platform Errors',
+			},
 			[Table3Keys.Budget]: null,
 			[Table3Keys.Status]: Status.Done,
 			[Table3Keys.Completion]: 100,
 		},
 		{
-			[Table3Keys.Companies]: { img: '', text: 'Launch Our Mobile App' },
+			[Table3Keys.Companies]: {
+				img: SpotifyLogo,
+				text: 'Launch Our Mobile App',
+			},
 			[Table3Keys.Budget]: 32000,
 			[Table3Keys.Status]: Status.Done,
 			[Table3Keys.Completion]: 100,
 		},
 		{
 			[Table3Keys.Companies]: {
-				img: '',
+				img: JiraLogo,
 				text: 'Add the New Pricing Page',
 			},
 			[Table3Keys.Budget]: 400,

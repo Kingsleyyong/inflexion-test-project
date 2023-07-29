@@ -49,3 +49,66 @@ export const formatTimestampForTimeline = (unixTimestamp: number) => {
 
 	return `${day} ${month} ${formattedHours}:${minutes} ${amOrPm}`;
 };
+
+// Image Cache
+export const globalCache: { [key: string]: HTMLImageElement } = {};
+export const preloadImages = async (
+	images: string[],
+	cache?: Record<string, HTMLImageElement>,
+	updateFunction?: (percentComplete: number) => void,
+): Promise<void> => {
+	const localCache = cache || globalCache;
+	let resolvedOrRejected = 0;
+	const promises = [
+		...images.map(
+			(src) =>
+				new Promise((resolve, reject) => {
+					if (localCache[src]) resolve(localCache[src]);
+					const img = new Image();
+					img.src = src;
+					img.onload = () => {
+						localCache[src] = img;
+						resolvedOrRejected += 1;
+						if (updateFunction) {
+							updateFunction(
+								Math.floor(
+									(resolvedOrRejected / images.length) * 100,
+								),
+							);
+						}
+						resolve(img);
+					};
+					img.onerror = () => {
+						resolvedOrRejected += 1;
+						if (updateFunction) {
+							updateFunction(
+								Math.floor(
+									(resolvedOrRejected / images.length) * 100,
+								),
+							);
+						}
+						reject();
+					};
+				}),
+		),
+		new Promise((resolve) => setTimeout(resolve, 500)),
+	];
+	await Promise.allSettled(promises);
+};
+
+export const linearPreload = (imagesToLoad: Array<string>) => {
+	if (!imagesToLoad || imagesToLoad.length === 0) return;
+	const [currentImage, ...restOfImages] = imagesToLoad;
+	if (!currentImage) {
+		linearPreload(restOfImages);
+		return;
+	}
+	const img = new Image();
+	img.src = currentImage;
+	img.onload = () => {
+		linearPreload(restOfImages);
+	};
+	img.onerror = () => {
+		linearPreload(restOfImages);
+	};
+};

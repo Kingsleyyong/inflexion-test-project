@@ -39,3 +39,7 @@ export const timelineData: TimestampData[] = [
 		img: AdobeXDLogo,
 	},
 ];
+
+export const barChartsMockData: number[] = [
+	350, 250, 100, 300, 500, 450, 500, 300, 150,
+];

@@ -51,6 +51,25 @@ import DesignLogo from '../assets/Design.svg';
 import ChakraImage from '../assets/chakra_image.png';
 import SampleBackground from '../assets/sample_image.png';
 
+import DropboxLogo from '../assets/Dropbox.svg';
+import CreditLogo from '../assets/Credit.svg';
+import CartLogo from '../assets/Cart2.svg';
+import JSLogo from '../assets/JS.svg';
+import RingtoneLogo from '../assets/Ringtone.svg';
+
+import Avatar1 from '../assets/Avatar 1.png';
+import Avatar2 from '../assets/Avatar 2.png';
+import Avatar3 from '../assets/Avatar 3.png';
+import Avatar4 from '../assets/Avatar 4.png';
+import Avatar5 from '../assets/Avatar 5.png';
+
+import Person1 from '../assets/Person1.png';
+import Person2 from '../assets/Person2.png';
+import Person3 from '../assets/Person3.png';
+import Person4 from '../assets/Person4.png';
+import Person5 from '../assets/Person5.png';
+import Person6 from '../assets/Person6.png';
+
 //Types
 import {
 	AmountUnit,
@@ -64,6 +83,10 @@ import {
 //Components
 const Card = lazy(() => import('../components/ActiveUsersCard/Card'));
 const Timeline = lazy(() => import('../components/Charts/Timeline/Timeline'));
+const ColumnCharts = lazy(
+	() => import('../components/Charts/ColumnCharts/ColumnCharts'),
+);
+
 //Mock Data
 import { Table1, Table2, Table3 } from './TablesMockData';
 
@@ -95,6 +118,22 @@ export const LogosImage = {
 	StackLogo,
 	AdobeXDLogo,
 	DesignLogo,
+	DropboxLogo,
+	CreditLogo,
+	CartLogo,
+	JSLogo,
+	RingtoneLogo,
+	Avatar1,
+	Avatar2,
+	Avatar3,
+	Avatar4,
+	Avatar5,
+	Person1,
+	Person2,
+	Person3,
+	Person4,
+	Person5,
+	Person6,
 };
 
 export const Images = {
@@ -252,6 +291,7 @@ export const DashboardGridItem: GridItem[] = [
 			},
 			readMoreOption: false,
 			ChildNode: {
+				top: ColumnCharts,
 				bottom: Card,
 			},
 		},

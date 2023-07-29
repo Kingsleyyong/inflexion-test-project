@@ -3,9 +3,11 @@ import { Coordinate, DashBoardMainCard } from '../../types/globalTypes';
 import CheckCircleIcon from '@mui/icons-material/CheckCircle';
 import EastIcon from '@mui/icons-material/East';
 import style from './MainCardboard.module.sass';
-import { Fragment } from 'react';
-import Table from '../TablesWrapper/Table';
+import { Fragment, Suspense, lazy } from 'react';
+import Loading from '../Loading/Loading';
 
+//Lazy Component
+const Table = lazy(() => import('../TablesWrapper/Table'));
 interface MainCardboardProp {
 	cardInformation: DashBoardMainCard;
 	className: string;
@@ -16,7 +18,11 @@ const MainCardboard = ({ cardInformation, className }: MainCardboardProp) => {
 
 	return (
 		<div className={`${className} ${style.cardBox}`}>
-			{ChildNode && ChildNode.top && <ChildNode.top />}
+			{ChildNode && ChildNode.top && (
+				<Suspense fallback={<Loading showLoadingText={false} />}>
+					<ChildNode.top />
+				</Suspense>
+			)}
 
 			<div className={style.horizontalFlex}>
 				<div className={style.mockInfoDiv}>
@@ -126,8 +132,17 @@ const MainCardboard = ({ cardInformation, className }: MainCardboardProp) => {
 				)}
 			</div>
 
-			{ChildNode?.bottom && <ChildNode.bottom />}
-			{ChildNode?.tableData && <Table tableData={ChildNode.tableData} />}
+			{ChildNode?.bottom && (
+				<Suspense fallback={<Loading showLoadingText={false} />}>
+					<ChildNode.bottom />
+				</Suspense>
+			)}
+
+			{ChildNode?.tableData && (
+				<Suspense fallback={<Loading showLoadingText={false} />}>
+					<Table tableData={ChildNode.tableData} />
+				</Suspense>
+			)}
 		</div>
 	);
 };

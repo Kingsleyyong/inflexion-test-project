@@ -1,4 +1,4 @@
-import { lazy, Suspense } from 'react';
+import { lazy, Suspense, useEffect } from 'react';
 import {
 	createBrowserRouter,
 	Navigate,
@@ -14,6 +14,8 @@ import { MainPageNavTabs, Tabs } from './types/globalTypes';
 //Components
 import Loading from './components/Loading/Loading';
 import ErrorPage from './components/Error/Error';
+import { globalCache, preloadImages } from './constant/utils';
+import { Images, LogosImage, MainPageNavLogo } from './constant/mockData';
 
 //Lazy Components
 const MainPageWrapper = lazy(
@@ -38,7 +40,7 @@ const router = createBrowserRouter([
 	{
 		path: `/${Tabs.SIGNIN}`,
 		element: (
-			<Suspense fallback={<Loading />}>
+			<Suspense fallback={<Loading showLoadingText={true} />}>
 				<SignIn />
 			</Suspense>
 		),
@@ -47,7 +49,7 @@ const router = createBrowserRouter([
 	{
 		path: `/${Tabs.SIGNUP}`,
 		element: (
-			<Suspense fallback={<Loading />}>
+			<Suspense fallback={<Loading showLoadingText={true} />}>
 				<SignUp />
 			</Suspense>
 		),
@@ -56,7 +58,7 @@ const router = createBrowserRouter([
 	{
 		path: `/pages/${MainPageNavTabs.DASHBOARD}`,
 		element: (
-			<Suspense fallback={<Loading />}>
+			<Suspense fallback={<Loading showLoadingText={true} />}>
 				<MainPageWrapper children={<Dashboard />} />
 			</Suspense>
 		),
@@ -65,7 +67,7 @@ const router = createBrowserRouter([
 	{
 		path: `/pages/${MainPageNavTabs.TABLES}`,
 		element: (
-			<Suspense fallback={<Loading />}>
+			<Suspense fallback={<Loading showLoadingText={true} />}>
 				<MainPageWrapper children={<TablesPage />} />
 			</Suspense>
 		),
@@ -97,6 +99,26 @@ const App = () => {
 		},
 	});
 	theme = responsiveFontSizes(theme);
+
+	// Define the useEffect to preload the images when the component mounts
+	useEffect(() => {
+		const imagesToPreload = [
+			...Object.values(LogosImage),
+			...Object.values(Images),
+			...Object.values(MainPageNavLogo),
+		];
+		const preloadAsync = async () => {
+			try {
+				await preloadImages(imagesToPreload, globalCache);
+				// Images are preloaded, do something when all images are loaded
+			} catch (error) {
+				// Handle errors if any image fails to load
+				console.error('Error preloading images:', error);
+			}
+		};
+
+		preloadAsync();
+	}, []);
 
 	return (
 		<ThemeProvider theme={theme}>

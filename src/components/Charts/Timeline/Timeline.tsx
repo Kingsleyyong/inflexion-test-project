@@ -8,7 +8,7 @@ import {
 	timelineItemClasses,
 } from '@mui/lab';
 import { Typography } from '@mui/material';
-import { timelineData } from '../../../constant/timeline';
+import { timelineData } from '../../../constant/chartsMockData';
 import { formatTimestampForTimeline } from '../../../constant/utils';
 import style from './Timeline.module.sass';
 

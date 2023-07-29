@@ -54,6 +54,7 @@ import SampleBackground from '../assets/sample_image.png';
 import {
 	AmountUnit,
 	Coordinate,
+	DashBoardMainCard,
 	GridItem,
 	MainPageNavTabs,
 	MainPageNavTabsType,
@@ -61,7 +62,7 @@ import {
 
 //Components
 import Card from '../components/ActiveUsersCard/Card';
-import { Table1 } from './TablesMockData';
+import { Table1, Table2, Table3 } from './TablesMockData';
 
 export const LogosImage = {
 	VandaleyIndustryLogoLight,
@@ -331,5 +332,23 @@ export const ActiveUserCardData = [
 			unit: '$',
 		},
 		linearProgress: 0.5,
+	},
+];
+
+export const TablesData: DashBoardMainCard[] = [
+	{
+		title: 'Author',
+		ChildNode: { tableData: Table2 },
+		readMoreOption: false,
+	},
+	{
+		title: 'Projects',
+		ChildNode: { tableData: Table3 },
+		description: {
+			greenText: false,
+			highlightText: '30 done',
+			text: `this month`,
+		},
+		readMoreOption: false,
 	},
 ];

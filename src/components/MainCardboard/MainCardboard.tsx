@@ -1,10 +1,5 @@
 import { Link, Typography } from '@mui/material';
-import {
-	Coordinate,
-	DashBoardMainCard,
-	DashboardCardElement,
-	Tables,
-} from '../../types/globalTypes';
+import { Coordinate, DashBoardMainCard } from '../../types/globalTypes';
 import CheckCircleIcon from '@mui/icons-material/CheckCircle';
 import EastIcon from '@mui/icons-material/East';
 import style from './MainCardboard.module.sass';
@@ -12,7 +7,7 @@ import { Fragment } from 'react';
 import Table from '../TablesWrapper/Table';
 
 interface MainCardboardProp {
-	cardInformation: DashBoardMainCard | DashboardCardElement;
+	cardInformation: DashBoardMainCard;
 }
 const MainCardboard = ({ cardInformation }: MainCardboardProp) => {
 	const { caption, title, description, readMoreOption, image, ChildNode } =
@@ -43,7 +38,8 @@ const MainCardboard = ({ cardInformation }: MainCardboardProp) => {
 						{title}
 					</Typography>
 					<div className={style.descriptionBox}>
-						{description.greenText !== undefined &&
+						{description &&
+							description.greenText !== undefined &&
 							description.greenText === false && (
 								<Fragment>
 									<CheckCircleIcon
@@ -56,7 +52,7 @@ const MainCardboard = ({ cardInformation }: MainCardboardProp) => {
 								</Fragment>
 							)}
 
-						{description.highlightText && (
+						{description && description.highlightText && (
 							<Typography
 								variant={'caption'}
 								color={
@@ -77,9 +73,12 @@ const MainCardboard = ({ cardInformation }: MainCardboardProp) => {
 									: style.gray400
 							}
 						>
-							{description.text.split('\n').map((line) => (
-								<div key={`${line}`}>{line}</div>
-							))}
+							{description &&
+								description.text
+									.split('\n')
+									.map((line) => (
+										<div key={`${line}`}>{line}</div>
+									))}
 						</Typography>
 					</div>
 

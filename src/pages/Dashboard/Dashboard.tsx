@@ -13,17 +13,27 @@ const Dashboard = () => {
 			<PageWrapperHeader pageTitle={MainPageNavTabs.DASHBOARD} />
 
 			<Grid container spacing={2} alignItems="stretch">
-				{DashboardGridItem.map((gridItem) => {
+				{DashboardGridItem.map((gridItem, itemIndex) => {
 					const { gridWidth, cardInformation } = gridItem;
 					if (!Object.keys(cardInformation).includes('title'))
 						return (
-							<Grid item sm={gridWidth.sm} xs={gridWidth.xs}>
+							<Grid
+								item
+								sm={gridWidth.sm}
+								xs={gridWidth.xs}
+								key={`Grid ${itemIndex + 1}`}
+							>
 								<AnalyticCard cardDetails={cardInformation} />
 							</Grid>
 						);
 					else
 						return (
-							<Grid item sm={gridWidth.sm} xs={gridWidth.xs}>
+							<Grid
+								item
+								sm={gridWidth.sm}
+								xs={gridWidth.xs}
+								key={`Grid ${itemIndex + 1}`}
+							>
 								<MainCardboard
 									cardInformation={cardInformation}
 								/>
@@ -32,7 +42,7 @@ const Dashboard = () => {
 				})}
 			</Grid>
 
-			<Footer classname={''} />
+			<Footer classname={style.footerClass} />
 		</div>
 	);
 };

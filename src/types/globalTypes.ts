@@ -59,7 +59,7 @@ export enum Coordinate {
 export interface DashBoardMainCard {
 	caption?: string;
 	title: string;
-	description: {
+	description?: {
 		greenText?: boolean;
 		highlightText?: string;
 		text: string;

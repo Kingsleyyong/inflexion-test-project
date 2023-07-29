@@ -8,8 +8,9 @@ import {
 import style from './MainPageWrapper.module.sass';
 import { MainPageNavTabs, Tabs } from '../../types/globalTypes';
 import { TabsTitleString } from '../../components/Header/HeaderTypes';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import ChildBoxNavLink from './ChildBoxNavLink';
+import { useLocation } from 'react-router';
 
 interface MainPageWrapperProps {
 	children: React.ReactNode;
@@ -18,6 +19,17 @@ const MainPageWrapper = ({ children }: MainPageWrapperProps) => {
 	const [selectedPage, setSelectedPage] = useState<MainPageNavTabs>(
 		MainPageNavTabs.DASHBOARD,
 	);
+
+	const location = useLocation();
+
+	useEffect(() => {
+		const locationArrPath = location.pathname.split('/');
+		setSelectedPage(
+			(locationArrPath.at(-1) as MainPageNavTabs) ??
+				MainPageNavTabs.DASHBOARD,
+		);
+	}, []);
+
 	return (
 		<div className={style.parentBox}>
 			<div className={style.leftNavBar}>
@@ -42,6 +54,7 @@ const MainPageWrapper = ({ children }: MainPageWrapperProps) => {
 
 				{NormalPages.map((nav) => (
 					<ChildBoxNavLink
+						key={nav.title}
 						nav={nav}
 						selectedPage={selectedPage}
 						setSelectedPage={setSelectedPage}
@@ -59,6 +72,7 @@ const MainPageWrapper = ({ children }: MainPageWrapperProps) => {
 
 				{AccountPages.map((nav) => (
 					<ChildBoxNavLink
+						key={nav.title}
 						nav={nav}
 						selectedPage={selectedPage}
 						setSelectedPage={setSelectedPage}

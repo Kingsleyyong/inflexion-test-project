@@ -20,6 +20,7 @@ import {
 interface TableCellsProp {
 	header: string[];
 	rowObject: Tables['dataRow'];
+	rowIndex: number;
 }
 
 interface DataCellsObject {
@@ -28,7 +29,7 @@ interface DataCellsObject {
 	subText?: string;
 }
 
-const TableCells = ({ header, rowObject }: TableCellsProp) => {
+const TableCells = ({ header, rowObject, rowIndex }: TableCellsProp) => {
 	const BorderLinearProgress = styled(LinearProgress)(({}) => ({
 		height: '0.15rem',
 		borderRadius: 20,
@@ -37,7 +38,7 @@ const TableCells = ({ header, rowObject }: TableCellsProp) => {
 		},
 	}));
 
-	const cells = header.map((headerString) => {
+	const cells = header.map((headerString, cellIndex) => {
 		const tableCellData = rowObject[headerString as keyof typeof rowObject];
 
 		switch (headerString) {
@@ -50,7 +51,9 @@ const TableCells = ({ header, rowObject }: TableCellsProp) => {
 					tableCellData as unknown as DataCellsObject;
 
 				return (
-					<TableCell>
+					<TableCell
+						key={`Row: ${rowIndex} Column: ${cellIndex} = ${headerString}`}
+					>
 						<div className={style.cellBox}>
 							{img !== undefined && <img src={img} alt={img} />}
 							<div className={style.cellTextBox}>
@@ -66,12 +69,15 @@ const TableCells = ({ header, rowObject }: TableCellsProp) => {
 
 			case Table1Keys.Members:
 				return (
-					<TableCell>
+					<TableCell
+						key={`Row: ${rowIndex} Column: ${cellIndex} = ${headerString}`}
+					>
 						<div className={style.cellBox}>
 							<AvatarGroup spacing={'small'}>
 								{(tableCellData as unknown as string[]).map(
 									(string) => (
 										<Avatar
+											key={string}
 											alt={string}
 											src={string}
 											sx={{
@@ -89,7 +95,9 @@ const TableCells = ({ header, rowObject }: TableCellsProp) => {
 			case Table1Keys.Budget:
 			case Table3Keys.Budget:
 				return (
-					<TableCell>
+					<TableCell
+						key={`Row: ${rowIndex} Column: ${cellIndex} = ${headerString}`}
+					>
 						<div className={style.cellBox}>
 							<Typography>
 								{(tableCellData as unknown as number) !== null
@@ -103,7 +111,9 @@ const TableCells = ({ header, rowObject }: TableCellsProp) => {
 			case Table1Keys.Completion:
 			case Table3Keys.Completion:
 				return (
-					<TableCell>
+					<TableCell
+						key={`Row: ${rowIndex} Column: ${cellIndex} = ${headerString}`}
+					>
 						<div>
 							<Typography>
 								{tableCellData as unknown as number}%
@@ -119,7 +129,9 @@ const TableCells = ({ header, rowObject }: TableCellsProp) => {
 			case Table2Keys.Status:
 			case Table3Keys.Status:
 				return (
-					<TableCell>
+					<TableCell
+						key={`Row: ${rowIndex} Column: ${cellIndex} = ${headerString}`}
+					>
 						<div className={style.cellBox}>
 							<Typography>
 								{tableCellData as unknown as Status}
@@ -133,7 +145,7 @@ const TableCells = ({ header, rowObject }: TableCellsProp) => {
 		}
 	});
 
-	return <Fragment>{cells.map((cell) => cell)}</Fragment>;
+	return <Fragment>{cells}</Fragment>;
 };
 
 export default TableCells;

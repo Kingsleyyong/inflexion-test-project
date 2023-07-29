@@ -3,11 +3,18 @@ import { createBrowserRouter, RouterProvider } from 'react-router-dom';
 import { ThemeProvider, createTheme, responsiveFontSizes } from '@mui/material';
 //SASS
 import style from './App.module.sass';
+
+//Types
 import { MainPageNavTabs, Tabs } from './types/globalTypes';
-import MainPageWrapper from './pages/MainPageWrapper/MainPageWrapper';
-import Loading from './components/Loading/Loading';
 
 //Components
+import Loading from './components/Loading/Loading';
+
+//Lazy Components
+const MainPageWrapper = lazy(
+	() => import('./pages/MainPageWrapper/MainPageWrapper'),
+);
+const TablesPage = lazy(() => import('./pages/TablesPage/TablesPage'));
 const SignIn = lazy(() => import('./pages/SignIn/SignIn'));
 const SignUp = lazy(() => import('./pages/SignUp/SignUp'));
 const Dashboard = lazy(() => import('./pages/Dashboard/Dashboard'));
@@ -50,7 +57,7 @@ const router = createBrowserRouter([
 		path: `/pages/${MainPageNavTabs.TABLES}`,
 		element: (
 			<Suspense fallback={<Loading />}>
-				<MainPageWrapper children={<Dashboard />} />
+				<MainPageWrapper children={<TablesPage />} />
 			</Suspense>
 		),
 		errorElement: <ErrorPage />,

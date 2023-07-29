@@ -19,7 +19,7 @@ const Card = () => {
 	return (
 		<div className={style.parentBox}>
 			{ActiveUserCardData.map((data) => (
-				<div className={style.card}>
+				<div className={style.card} key={data.captionTitle}>
 					<div className={style.flexTopBox}>
 						<img src={data.img} alt={data.captionTitle} />
 						<Typography

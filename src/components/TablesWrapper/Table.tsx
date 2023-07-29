@@ -31,6 +31,7 @@ const Table = ({ tableData }: { tableData: Tables }) => {
 					{dataRow.map((rowObject, index) => (
 						<TableRow key={`Row ${index + 1}`}>
 							<TableCells
+								rowIndex={index}
 								header={header}
 								rowObject={
 									rowObject as unknown as Tables['dataRow']

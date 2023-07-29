@@ -12,6 +12,7 @@ import { SearchOutlined } from '@mui/icons-material';
 import PersonIcon from '@mui/icons-material/Person';
 import SettingsIcon from '@mui/icons-material/Settings';
 import NotificationsIcon from '@mui/icons-material/Notifications';
+import { NavLink } from 'react-router-dom';
 
 interface PageWrapperHeaderProps {
 	pageTitle: MainPageNavTabs;
@@ -67,20 +68,20 @@ const PageWrapperHeader = ({ pageTitle }: PageWrapperHeaderProps) => {
 					}}
 				/>
 
-				<Link
-					href={`/pages/${Tabs.SIGNIN}`}
+				<NavLink
+					to={`/pages/${Tabs.SIGNIN}`}
 					className={style.theButton}
 				>
 					<PersonIcon />
 					<Typography variant={'caption'}>Sign In</Typography>
-				</Link>
+				</NavLink>
 
-				<Link className={style.theButton}>
+				<NavLink to={''} className={style.theButton}>
 					<SettingsIcon />
-				</Link>
-				<Link className={style.theButton}>
+				</NavLink>
+				<NavLink to={''} className={style.theButton}>
 					<NotificationsIcon />
-				</Link>
+				</NavLink>
 			</div>
 		</div>
 	);

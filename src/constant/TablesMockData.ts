@@ -122,7 +122,7 @@ export const Table2: Tables = {
 			},
 			[Table2Keys.Function]: { text: 'Manager', subText: 'Organization' },
 			[Table2Keys.Status]: Status.Online,
-			[Table2Keys.Employed]: { text: '14/06/21' },
+			[Table2Keys.Employed]: { timestamp: 1623600000 },
 		},
 		{
 			[Table2Keys.Author]: {
@@ -135,7 +135,7 @@ export const Table2: Tables = {
 				subText: 'Developer',
 			},
 			[Table2Keys.Status]: Status.Offline,
-			[Table2Keys.Employed]: { text: '14/06/21' },
+			[Table2Keys.Employed]: { timestamp: 1623600000 },
 		},
 		{
 			[Table2Keys.Author]: {
@@ -148,7 +148,7 @@ export const Table2: Tables = {
 				subText: 'Projects',
 			},
 			[Table2Keys.Status]: Status.Online,
-			[Table2Keys.Employed]: { text: '14/06/21' },
+			[Table2Keys.Employed]: { timestamp: 1623600000 },
 		},
 		{
 			[Table2Keys.Author]: {
@@ -158,7 +158,7 @@ export const Table2: Tables = {
 			},
 			[Table2Keys.Function]: { text: 'Manager', subText: 'Organization' },
 			[Table2Keys.Status]: Status.Online,
-			[Table2Keys.Employed]: { text: '14/06/21' },
+			[Table2Keys.Employed]: { timestamp: 1623600000 },
 		},
 		{
 			[Table2Keys.Author]: {
@@ -171,7 +171,7 @@ export const Table2: Tables = {
 				subText: 'Developer',
 			},
 			[Table2Keys.Status]: Status.Offline,
-			[Table2Keys.Employed]: { text: '14/06/21' },
+			[Table2Keys.Employed]: { timestamp: 1623600000 },
 		},
 		{
 			[Table2Keys.Author]: {
@@ -184,7 +184,7 @@ export const Table2: Tables = {
 				subText: 'UI/UX Design',
 			},
 			[Table2Keys.Status]: Status.Offline,
-			[Table2Keys.Employed]: { text: '14/06/21' },
+			[Table2Keys.Employed]: { timestamp: 1623600000 },
 		},
 	],
 };

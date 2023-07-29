@@ -1,3 +1,4 @@
+import { LazyExoticComponent } from 'react';
 import {
 	Status,
 	Table1Keys,
@@ -70,8 +71,8 @@ export interface DashBoardMainCard {
 		coordinate: Coordinate;
 	};
 	ChildNode?: {
-		top?: () => JSX.Element;
-		bottom?: () => JSX.Element;
+		top?: LazyExoticComponent<() => JSX.Element>;
+		bottom?: LazyExoticComponent<() => JSX.Element>;
 		tableData?: Tables;
 	};
 }
@@ -114,7 +115,7 @@ export interface Tables {
 				};
 				[Table2Keys.Function]: { text: string; subText: string };
 				[Table2Keys.Status]: Status;
-				[Table2Keys.Employed]: { text: string };
+				[Table2Keys.Employed]: { timestamp: number };
 		  }[]
 		| {
 				[Table3Keys.Companies]: { img: string; text: string };
@@ -123,3 +124,9 @@ export interface Tables {
 				[Table3Keys.Completion]: number;
 		  }[];
 }
+
+export type TimestampData = {
+	text: string;
+	timestamp: number;
+	img: string;
+};

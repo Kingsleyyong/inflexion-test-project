@@ -1,3 +1,4 @@
+import { lazy } from 'react';
 //Assets
 import VandaleyIndustryLogoLight from '../assets/vandelay_industry_logo_light.svg';
 import VandaleyIndustryLogoDark from '../assets/vandelay_industry_logo_dark.svg';
@@ -61,7 +62,9 @@ import {
 } from '../types/globalTypes';
 
 //Components
-import Card from '../components/ActiveUsersCard/Card';
+const Card = lazy(() => import('../components/ActiveUsersCard/Card'));
+const Timeline = lazy(() => import('../components/Charts/Timeline/Timeline'));
+//Mock Data
 import { Table1, Table2, Table3 } from './TablesMockData';
 
 export const LogosImage = {
@@ -292,6 +295,9 @@ export const DashboardGridItem: GridItem[] = [
 				text: `this month`,
 			},
 			readMoreOption: false,
+			ChildNode: {
+				bottom: Timeline,
+			},
 		},
 		// children: Node,
 		gridWidth: { xs: 12, sm: 4 },

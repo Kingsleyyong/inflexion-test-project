@@ -16,6 +16,7 @@ import {
 	Table2Keys,
 	Table3Keys,
 } from '../../constant/TablesMockData';
+import { formatDateFromUnixTimestamp } from '../../constant/utils';
 
 interface TableCellsProp {
 	header: string[];
@@ -25,7 +26,8 @@ interface TableCellsProp {
 
 interface DataCellsObject {
 	img?: string;
-	text: string;
+	timestamp?: number;
+	text?: string;
 	subText?: string;
 }
 
@@ -47,7 +49,7 @@ const TableCells = ({ header, rowObject, rowIndex }: TableCellsProp) => {
 			case Table2Keys.Author:
 			case Table2Keys.Function:
 			case Table2Keys.Employed: {
-				const { img, text, subText } =
+				const { img, text, subText, timestamp } =
 					tableCellData as unknown as DataCellsObject;
 
 				return (
@@ -63,9 +65,16 @@ const TableCells = ({ header, rowObject, rowIndex }: TableCellsProp) => {
 								/>
 							)}
 							<div className={style.cellTextBox}>
-								<Typography variant={'body2'}>
-									{text}
-								</Typography>
+								{text && (
+									<Typography variant={'body2'}>
+										{text}
+									</Typography>
+								)}
+								{timestamp && (
+									<Typography variant={'body2'}>
+										{formatDateFromUnixTimestamp(timestamp)}
+									</Typography>
+								)}
 								{subText !== undefined && (
 									<Typography
 										variant={'caption'}

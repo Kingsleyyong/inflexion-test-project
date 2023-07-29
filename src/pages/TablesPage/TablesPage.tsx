@@ -9,8 +9,13 @@ const TablesPage = () => {
 	return (
 		<div>
 			<PageWrapperHeader pageTitle={MainPageNavTabs.TABLES} />
+
 			{TablesData.map((data) => (
-				<MainCardboard cardInformation={data} key={data.title} />
+				<MainCardboard
+					cardInformation={data}
+					className={style.tableBox}
+					key={data.title}
+				/>
 			))}
 
 			<Footer classname={style.footerClass} />

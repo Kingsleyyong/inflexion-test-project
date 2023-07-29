@@ -55,11 +55,24 @@ const TableCells = ({ header, rowObject, rowIndex }: TableCellsProp) => {
 						key={`Row: ${rowIndex} Column: ${cellIndex} = ${headerString}`}
 					>
 						<div className={style.cellBox}>
-							{img !== undefined && <img src={img} alt={img} />}
+							{img !== undefined && (
+								<img
+									src={img}
+									alt={img}
+									data-imagewidth={headerString}
+								/>
+							)}
 							<div className={style.cellTextBox}>
-								<Typography ml={2}>{text}</Typography>
+								<Typography variant={'body2'}>
+									{text}
+								</Typography>
 								{subText !== undefined && (
-									<Typography>{subText}</Typography>
+									<Typography
+										variant={'caption'}
+										fontWeight={'fontWeightLight'}
+									>
+										{subText}
+									</Typography>
 								)}
 							</div>
 						</div>
@@ -81,8 +94,8 @@ const TableCells = ({ header, rowObject, rowIndex }: TableCellsProp) => {
 											alt={string}
 											src={string}
 											sx={{
-												height: '1.8rem',
-												width: '1.8rem',
+												height: '1.5rem',
+												width: '1.5rem',
 											}}
 										/>
 									),
@@ -99,7 +112,7 @@ const TableCells = ({ header, rowObject, rowIndex }: TableCellsProp) => {
 						key={`Row: ${rowIndex} Column: ${cellIndex} = ${headerString}`}
 					>
 						<div className={style.cellBox}>
-							<Typography>
+							<Typography variant={'body2'}>
 								{(tableCellData as unknown as number) !== null
 									? `$ ${tableCellData as unknown as number}`
 									: 'Not Set'}
@@ -115,7 +128,7 @@ const TableCells = ({ header, rowObject, rowIndex }: TableCellsProp) => {
 						key={`Row: ${rowIndex} Column: ${cellIndex} = ${headerString}`}
 					>
 						<div>
-							<Typography>
+							<Typography variant={'body2'}>
 								{tableCellData as unknown as number}%
 							</Typography>
 							<BorderLinearProgress
@@ -133,7 +146,13 @@ const TableCells = ({ header, rowObject, rowIndex }: TableCellsProp) => {
 						key={`Row: ${rowIndex} Column: ${cellIndex} = ${headerString}`}
 					>
 						<div className={style.cellBox}>
-							<Typography>
+							<Typography
+								variant={'body2'}
+								className={style.statusBox}
+								data-bgcolor={
+									tableCellData as unknown as Status
+								}
+							>
 								{tableCellData as unknown as Status}
 							</Typography>
 						</div>

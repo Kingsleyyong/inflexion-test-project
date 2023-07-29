@@ -15,13 +15,18 @@ import TableCells from './TableCells';
 const Table = ({ tableData }: { tableData: Tables }) => {
 	const { header, dataRow } = tableData;
 	return (
-		<TableContainer component={Paper}>
+		<TableContainer component={Paper} className={style.tableStyle}>
 			<MUITable aria-label="simple table">
 				<TableHead>
 					<TableRow>
 						{header.map((key) => (
 							<TableCell key={key}>
-								<Typography>{key}</Typography>
+								<Typography
+									variant={'caption'}
+									textTransform={'uppercase'}
+								>
+									{key}
+								</Typography>
 							</TableCell>
 						))}
 					</TableRow>

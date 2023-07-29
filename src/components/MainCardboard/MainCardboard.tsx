@@ -8,13 +8,14 @@ import Table from '../TablesWrapper/Table';
 
 interface MainCardboardProp {
 	cardInformation: DashBoardMainCard;
+	className: string;
 }
-const MainCardboard = ({ cardInformation }: MainCardboardProp) => {
+const MainCardboard = ({ cardInformation, className }: MainCardboardProp) => {
 	const { caption, title, description, readMoreOption, image, ChildNode } =
 		cardInformation as DashBoardMainCard;
 
 	return (
-		<div className={style.cardBox}>
+		<div className={`${className} ${style.cardBox}`}>
 			{ChildNode && ChildNode.top && <ChildNode.top />}
 
 			<div className={style.horizontalFlex}>

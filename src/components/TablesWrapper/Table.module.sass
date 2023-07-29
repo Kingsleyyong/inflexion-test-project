@@ -1,19 +1,50 @@
 @import './src/global/_global.sass'
 
+.tableStyle
+    border: none
+    box-shadow: none
+    margin: 0 1rem
+    width: auto
+
 .tableBodyStyle
-    width: 100%
+    width: auto
+
 //Table Cell
 .cellBox
     @include flexCenter
     justify-content: flex-start
-    width: 100%
+    width: auto
+
+    [data-bgcolor='Online']
+        background-color: $green400
+        text-align: center
+        color: $white
+
+    [data-bgcolor='Offline']
+        background-color: $gray300
+        text-align: center
+        color: $white
+
+    img[data-imagewidth='Companies']
+        width: 1rem
+
+    img[data-imagewidth='Author']
+        width: 4rem
 
 .cellTextBox
     @include flexCenter
     align-items: flex-start
     flex-direction: column
     height: 100%
+    margin-left: 0.5rem
+
+.statusBox
+    padding: 0.5rem
+    border-radius: 15px
+    width: 3rem
+
 
 
 :export 
     gray200: $gray200
+    gray400: $gray400

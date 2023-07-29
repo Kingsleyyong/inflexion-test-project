@@ -68,10 +68,7 @@ const PageWrapperHeader = ({ pageTitle }: PageWrapperHeaderProps) => {
 					}}
 				/>
 
-				<NavLink
-					to={`/pages/${Tabs.SIGNIN}`}
-					className={style.theButton}
-				>
+				<NavLink to={`/${Tabs.SIGNIN}`} className={style.theButton}>
 					<PersonIcon />
 					<Typography variant={'caption'}>Sign In</Typography>
 				</NavLink>

@@ -1,5 +1,9 @@
 import { lazy, Suspense } from 'react';
-import { createBrowserRouter, RouterProvider } from 'react-router-dom';
+import {
+	createBrowserRouter,
+	Navigate,
+	RouterProvider,
+} from 'react-router-dom';
 import { ThemeProvider, createTheme, responsiveFontSizes } from '@mui/material';
 //SASS
 import style from './App.module.sass';
@@ -9,6 +13,7 @@ import { MainPageNavTabs, Tabs } from './types/globalTypes';
 
 //Components
 import Loading from './components/Loading/Loading';
+import ErrorPage from './components/Error/Error';
 
 //Lazy Components
 const MainPageWrapper = lazy(
@@ -18,9 +23,13 @@ const TablesPage = lazy(() => import('./pages/TablesPage/TablesPage'));
 const SignIn = lazy(() => import('./pages/SignIn/SignIn'));
 const SignUp = lazy(() => import('./pages/SignUp/SignUp'));
 const Dashboard = lazy(() => import('./pages/Dashboard/Dashboard'));
-const ErrorPage = lazy(() => import('./components/Error/Error'));
 
 const router = createBrowserRouter([
+	{
+		path: '/',
+		element: <Navigate to={`/pages/${MainPageNavTabs.DASHBOARD}`} />,
+		errorElement: <ErrorPage />,
+	},
 	{
 		path: '*',
 		element: <ErrorPage />,
@@ -71,6 +80,12 @@ const App = () => {
 			fontWeightRegular: 700,
 			fontWeightMedium: 500,
 			fontWeightLight: 400,
+			caption: {
+				color: style.gray400,
+			},
+			overline: {
+				color: style.gray400,
+			},
 		},
 		palette: {
 			primary: {

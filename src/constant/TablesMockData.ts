@@ -4,6 +4,13 @@ import Avatar3 from '../assets/Avatar 3.png';
 import Avatar4 from '../assets/Avatar 4.png';
 import Avatar5 from '../assets/Avatar 5.png';
 
+import Person1 from '../assets/Person1.png';
+import Person2 from '../assets/Person2.png';
+import Person3 from '../assets/Person3.png';
+import Person4 from '../assets/Person4.png';
+import Person5 from '../assets/Person5.png';
+import Person6 from '../assets/Person6.png';
+
 import AtlassianLogo from '../assets/Atlassian.svg';
 import JiraLogo from '../assets/Jira.svg';
 import SpotifyLogo from '../assets/Spotify.svg';
@@ -109,7 +116,7 @@ export const Table2: Tables = {
 	dataRow: [
 		{
 			[Table2Keys.Author]: {
-				img: '',
+				img: Person1,
 				text: 'Elaine Benes',
 				subText: 'elaine@vandelay.com',
 			},
@@ -119,7 +126,7 @@ export const Table2: Tables = {
 		},
 		{
 			[Table2Keys.Author]: {
-				img: '',
+				img: Person2,
 				text: 'Sidra Holland',
 				subText: 'sidra@vandelay.com',
 			},
@@ -132,7 +139,7 @@ export const Table2: Tables = {
 		},
 		{
 			[Table2Keys.Author]: {
-				img: '',
+				img: Person3,
 				text: 'Cosmo Kramer',
 				subText: 'kramer@vandelay.com',
 			},
@@ -145,7 +152,7 @@ export const Table2: Tables = {
 		},
 		{
 			[Table2Keys.Author]: {
-				img: '',
+				img: Person4,
 				text: 'Newman',
 				subText: 'newman@usps.com',
 			},
@@ -155,7 +162,7 @@ export const Table2: Tables = {
 		},
 		{
 			[Table2Keys.Author]: {
-				img: '',
+				img: Person5,
 				text: 'Frank Costanza',
 				subText: 'frank@vandelay.com',
 			},
@@ -168,7 +175,7 @@ export const Table2: Tables = {
 		},
 		{
 			[Table2Keys.Author]: {
-				img: '',
+				img: Person6,
 				text: 'Art VanDelay',
 				subText: 'art.ie@vandelay.com',
 			},

@@ -337,7 +337,7 @@ export const ActiveUserCardData = [
 
 export const TablesData: DashBoardMainCard[] = [
 	{
-		title: 'Author',
+		title: 'Authors Table',
 		ChildNode: { tableData: Table2 },
 		readMoreOption: false,
 	},

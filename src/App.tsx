@@ -143,6 +143,25 @@ const App = () => {
 		};
 
 		preloadAsync();
+
+		document.title = Tabs.VANDELAY_INDUSTRY.replace(/_/g, ' ');
+		const favicon = document.getElementById('favicon');
+		const isDarkMode =
+			window.matchMedia &&
+			window.matchMedia('(prefers-color-scheme: dark)').matches;
+
+		const faviconPath = isDarkMode
+			? LogosImage.VandaleyIndustryLogoLight
+			: LogosImage.VandaleyIndustryLogoDark;
+
+		if (favicon instanceof HTMLLinkElement) {
+			favicon.href = faviconPath;
+		} else {
+			const newFavicon = document.createElement('link');
+			newFavicon.rel = 'icon';
+			newFavicon.href = faviconPath;
+			document.head.appendChild(newFavicon);
+		}
 	}, []);
 
 	return (

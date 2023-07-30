@@ -1,5 +1,11 @@
+//Packages
 import { Link, Typography } from '@mui/material';
+
+//Style
 import style from './Footer.module.sass';
+
+//Hooks
+import { useMediaQueries } from '../../hooks/mediaQuery';
 
 enum Links {
 	ABOUT_US = 'About US',
@@ -11,6 +17,7 @@ enum Links {
 interface FooterProps {
 	classname: string;
 }
+// const { medium, large } = useMediaQueries();
 
 const Footer = ({ classname }: FooterProps) => {
 	return (

@@ -17,6 +17,7 @@ const SignUp = () => {
 				className={style.backgroundImg}
 				src={Images.SignInPageBgImg}
 				alt="Sign In Background"
+				loading="lazy"
 			/>
 
 			<div className={style.signInBox}>

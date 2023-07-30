@@ -1,10 +1,19 @@
-// SASS
+//Packages
 import { Typography, styled } from '@mui/material';
+import { NavLink } from 'react-router-dom';
+
+// SASS
+import style from './LogoGroup.module.sass';
+
+//Types
 import { DisplayTheme, Tabs } from '../../types/globalTypes';
 import { LogosGroup, TabsType } from '../Header/HeaderTypes';
-import style from './LogoGroup.module.sass';
-import { NavLink } from 'react-router-dom';
+
+//Utils
 import { filterPath } from '../../constant/utils';
+
+//Hooks
+import { useMediaQueries } from '../../hooks/mediaQuery';
 
 interface LogoGroupProp extends LogosGroup {
 	displayTheme: DisplayTheme;
@@ -18,12 +27,17 @@ const LogoGroup = ({
 	title,
 	tabsType,
 }: LogoGroupProp) => {
-	const NavTypography = styled(Typography)(({ theme }) => ({
-		// ...theme.typography,
-		color: displayTheme === DisplayTheme.DARK ? style.gray700 : style.white,
+	const { medium, large } = useMediaQueries();
+
+	const NavTypography = styled(Typography)(({}) => ({
+		color:
+			(!medium && !large) || displayTheme === DisplayTheme.DARK
+				? style.gray700
+				: style.white,
 		textAlign: 'center',
-		fontWeight: tabsType === TabsType.LOGO ? 900 : 600,
-		lineHeight: '15px',
+		fontWeight:
+			tabsType === TabsType.LOGO ? 'fontWeightBold' : 'fontWeightRegular',
+		lineHeight: '1rem',
 		letterSpacing: '0',
 		textTransform: 'uppercase',
 	}));
@@ -31,17 +45,20 @@ const LogoGroup = ({
 	const ButtonTypography = styled(Typography)(({ theme }) => ({
 		...theme.typography,
 		textAlign: 'center',
-		fontWeight: 400,
-		lineHeight: '15px',
+		fontWeight: 'fontWeightLight',
+		lineHeight: '1rem',
 		letterSpacing: '0',
-		color: displayTheme === DisplayTheme.DARK ? style.white : style.gray700,
+		color:
+			(!medium && !large) || displayTheme === DisplayTheme.DARK
+				? style.white
+				: style.gray700,
 		textTransform: 'capitalize',
 	}));
 
 	if (tabsType === TabsType.BUTTON)
 		return (
 			<div
-				data-theme={displayTheme}
+				data-theme={medium || large ? displayTheme : DisplayTheme.DARK}
 				role="button"
 				key={title}
 				className={style.button}
@@ -62,7 +79,9 @@ const LogoGroup = ({
 					<img src={logoImagePath} alt={title} loading="lazy" />
 				)}
 				<NavTypography
-					variant={tabsType === TabsType.LOGO ? 'h6' : 'caption'}
+					variant={
+						tabsType === TabsType.LOGO ? 'subtitle1' : 'caption'
+					}
 				>
 					{title}
 				</NavTypography>

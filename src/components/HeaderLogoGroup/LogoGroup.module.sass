@@ -2,29 +2,46 @@
 
 .logoGroup
     @include flexCenter
-    width: 10%
+    width: 8rem
     justify-content: center
     cursor: pointer
     text-decoration: none
 
     img
-        width: 6%
-        margin-right: 4%
+        width: 1rem
+        margin-right: 0.5rem
+
+    @media (max-width:$mediumMaxWidth)
+        width: 100%
+        margin: 3rem 0
+        cursor: pointer
 
 .mainLogo
-    width: 30%
-    margin: 0 auto 0 1%
+    width: 20rem
+    margin: 0 auto 0 2rem
+    justify-content: flex-start
 
     img
-        width: 6%
+        width: 1.5rem
+
+    @media (max-width:$mediumMaxWidth)
+        width: 100%
+        margin: 0 2rem 0 2rem
+
 
 .button
-    width: 15%
-    margin: 0 2% 0 auto
+    width: 13rem
+    margin: 0 1rem 0 auto
     background-color: $white
     padding: 1%
     border-radius: 50px
     cursor: pointer
+
+    @media (max-width:$mediumMaxWidth)
+        @include flexCenter
+        margin: 0 1rem 0 1rem
+        height: 1.5rem
+        width: auto
 
 .button[data-theme='1']
     background: linear-gradient(81.62deg, #313860 2.25%, #151928 79.87%)

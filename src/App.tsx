@@ -1,3 +1,4 @@
+//Packages
 import { lazy, Suspense, useEffect } from 'react';
 import {
 	createBrowserRouter,
@@ -5,6 +6,7 @@ import {
 	RouterProvider,
 } from 'react-router-dom';
 import { ThemeProvider, createTheme, responsiveFontSizes } from '@mui/material';
+
 //SASS
 import style from './App.module.sass';
 
@@ -14,7 +16,11 @@ import { MainPageNavTabs, Tabs } from './types/globalTypes';
 //Components
 import Loading from './components/Loading/Loading';
 import ErrorPage from './components/Error/Error';
+
+//Utils
 import { globalCache, preloadImages } from './constant/utils';
+
+//Mock Data
 import { Images, LogosImage, MainPageNavLogo } from './constant/mockData';
 
 //Lazy Components
@@ -79,6 +85,7 @@ const App = () => {
 	let theme = createTheme({
 		typography: {
 			fontFamily: 'Helvetica, Sans-Serif',
+			fontWeightBold: 900,
 			fontWeightRegular: 700,
 			fontWeightMedium: 500,
 			fontWeightLight: 400,

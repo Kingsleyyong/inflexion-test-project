@@ -10,6 +10,7 @@ import { RegistrationTextField } from '../../pages/SignUp/SignUpTypes';
 import style from './AuthorisationInputField.module.sass';
 import { Fragment } from 'react';
 import { useLocation } from 'react-router';
+import { Tabs } from '../../types/globalTypes';
 
 const AuthorisationInputField = () => {
 	const location = useLocation();
@@ -85,7 +86,9 @@ const AuthorisationInputField = () => {
 				sx={{ width: '80%', borderRadius: '10px', margin: '3% 0' }}
 			>
 				<Typography color={style.white} variant={'overline'}>
-					{location.pathname === '/sign-in' ? 'Sign In' : 'Sign Up'}
+					{location.pathname === `/${Tabs.SIGNIN}`
+						? 'Sign In'
+						: 'Sign Up'}
 				</Typography>
 			</Button>
 
@@ -108,7 +111,9 @@ const AuthorisationInputField = () => {
 					color={style.teal300}
 					href={'#'}
 				>
-					{location.pathname === '/sign-in' ? 'Sign In' : 'Sign Up'}
+					{location.pathname === `/${Tabs.SIGNIN}`
+						? 'Sign In'
+						: 'Sign Up'}
 				</Link>
 			</div>
 		</Fragment>

@@ -6,12 +6,16 @@
     position: absolute
     bottom: 0
     margin-bottom: 1%
-    width: 100%
+
+    @media (max-width:$mediumMaxWidth)
+        flex-direction: column
+        width: 37rem
+        height: 4rem
 
 .linkDiv
     @include flexCenter
     justify-content: space-between
-    width: 30%
+    width: 20rem
 
 :export
     gray400: $gray400

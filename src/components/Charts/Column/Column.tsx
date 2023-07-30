@@ -2,11 +2,11 @@ import { barChartsMockData } from '../../../constant/chartsMockData';
 import { useEffect, useRef } from 'react';
 import * as Highcharts from 'highcharts';
 import HighchartsReact from 'highcharts-react-official';
-import style from './ColumnCharts.module.sass';
+import style from './Column.module.sass';
 
 const options: Highcharts.Options = {
 	title: {
-		text: null,
+		text: undefined,
 	},
 	series: [
 		{
@@ -24,12 +24,13 @@ const options: Highcharts.Options = {
 		enabled: false,
 	},
 	xAxis: {
+		left: 40,
 		visible: false,
 	},
 	yAxis: {
 		tickInterval: 100,
 		max: Math.max(...barChartsMockData),
-		title: null,
+		title: undefined,
 		gridLineWidth: 0,
 		labels: {
 			align: 'left',
@@ -42,9 +43,11 @@ const options: Highcharts.Options = {
 	},
 	plotOptions: {
 		column: {
+			color: style.white,
+			borderWidth: 0,
+			pointWidth: 8,
 			borderRadius: 15,
 		},
-		series: { pointWidth: 8, borderWidth: 0, color: style.white },
 	},
 	chart: {
 		backgroundColor: 'rgba(0,0,0,0)',

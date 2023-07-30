@@ -83,9 +83,8 @@ import {
 //Components
 const Card = lazy(() => import('../components/ActiveUsersCard/Card'));
 const Timeline = lazy(() => import('../components/Charts/Timeline/Timeline'));
-const ColumnCharts = lazy(
-	() => import('../components/Charts/ColumnCharts/ColumnCharts'),
-);
+const ColumnCharts = lazy(() => import('../components/Charts/Column/Column'));
+const SalesCharts = lazy(() => import('../components/Charts/Spline/Spline'));
 
 //Mock Data
 import { Table1, Table2, Table3 } from './TablesMockData';
@@ -305,6 +304,7 @@ export const DashboardGridItem: GridItem[] = [
 				highlightText: '(+5) more',
 				text: `in 2021`,
 			},
+			ChildNode: { bottom: SalesCharts },
 			readMoreOption: false,
 		},
 		// children: Node,

@@ -1,4 +1,4 @@
-import { TimestampData } from '../types/globalTypes';
+import { SalesChartsMockDataType, TimestampData } from '../types/globalTypes';
 
 import DropboxLogo from '../assets/Dropbox.svg';
 import CreditLogo from '../assets/Credit.svg';
@@ -42,4 +42,35 @@ export const timelineData: TimestampData[] = [
 
 export const barChartsMockData: number[] = [
 	350, 250, 100, 300, 500, 450, 500, 300, 150,
+];
+
+export const salesChartsMockData: SalesChartsMockDataType[] = [
+	{
+		Jan: 500,
+		Feb: 210,
+		Mar: 190,
+		Apr: 280,
+		May: 220,
+		Jun: 230,
+		Jul: 250,
+		Aug: 210,
+		Sep: 120,
+		Oct: 130,
+		Nov: 180,
+		Dec: 130,
+	},
+	{
+		Jan: 190,
+		Feb: 210,
+		Mar: 208,
+		Apr: 350,
+		May: 370,
+		Jun: 460,
+		Jul: 400,
+		Aug: 300,
+		Sep: 350,
+		Oct: 250,
+		Nov: 300,
+		Dec: 420,
+	},
 ];

@@ -1,5 +1,6 @@
 // Packages
 import { Suspense, lazy, useEffect, useState } from 'react';
+import { Button, Menu } from '@mui/material';
 
 // SASS
 import style from './Header.module.sass';
@@ -9,11 +10,12 @@ import { LogosGroup, TabsTitleString } from './HeaderTypes.ts';
 import { DisplayTheme } from '../../types/globalTypes.ts';
 import { genarateLogosGroupArray } from './utils.ts';
 import Loading from '../Loading/Loading.tsx';
+
+//Hooks
 import { useMediaQueries } from '../../hooks/mediaQuery.ts';
 
 //Icon
 import MenuIcon from '@mui/icons-material/Menu';
-import { Button, Menu } from '@mui/material';
 
 // Lazy Component
 const LogoGroup = lazy(() => import('../HeaderLogoGroup/LogoGroup.tsx'));

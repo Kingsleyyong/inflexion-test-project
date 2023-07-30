@@ -1,5 +1,5 @@
 //Packages
-import { lazy, Suspense, useEffect } from 'react';
+import { lazy, Suspense, useEffect, useState } from 'react';
 import {
 	createBrowserRouter,
 	Navigate,
@@ -32,56 +32,74 @@ const SignIn = lazy(() => import('./pages/SignIn/SignIn'));
 const SignUp = lazy(() => import('./pages/SignUp/SignUp'));
 const Dashboard = lazy(() => import('./pages/Dashboard/Dashboard'));
 
-const router = createBrowserRouter([
-	{
-		path: '/',
-		element: <Navigate to={`/pages/${MainPageNavTabs.DASHBOARD}`} />,
-		errorElement: <ErrorPage />,
-	},
-	{
-		path: '*',
-		element: <ErrorPage />,
-		errorElement: <ErrorPage />,
-	},
-	{
-		path: `/${Tabs.SIGNIN}`,
-		element: (
-			<Suspense fallback={<Loading showLoadingText={true} />}>
-				<SignIn />
-			</Suspense>
-		),
-		errorElement: <ErrorPage />,
-	},
-	{
-		path: `/${Tabs.SIGNUP}`,
-		element: (
-			<Suspense fallback={<Loading showLoadingText={true} />}>
-				<SignUp />
-			</Suspense>
-		),
-		errorElement: <ErrorPage />,
-	},
-	{
-		path: `/pages/${MainPageNavTabs.DASHBOARD}`,
-		element: (
-			<Suspense fallback={<Loading showLoadingText={true} />}>
-				<MainPageWrapper children={<Dashboard />} />
-			</Suspense>
-		),
-		errorElement: <ErrorPage />,
-	},
-	{
-		path: `/pages/${MainPageNavTabs.TABLES}`,
-		element: (
-			<Suspense fallback={<Loading showLoadingText={true} />}>
-				<MainPageWrapper children={<TablesPage />} />
-			</Suspense>
-		),
-		errorElement: <ErrorPage />,
-	},
-]);
-
 const App = () => {
+	const [showMainPageNav, setShowMainPageNav] = useState(false);
+
+	const router = createBrowserRouter([
+		{
+			path: '/',
+			element: <Navigate to={`/pages/${MainPageNavTabs.DASHBOARD}`} />,
+			errorElement: <ErrorPage />,
+		},
+		{
+			path: '*',
+			element: <ErrorPage />,
+			errorElement: <ErrorPage />,
+		},
+		{
+			path: `/${Tabs.SIGNIN}`,
+			element: (
+				<Suspense fallback={<Loading showLoadingText={true} />}>
+					<SignIn />
+				</Suspense>
+			),
+			errorElement: <ErrorPage />,
+		},
+		{
+			path: `/${Tabs.SIGNUP}`,
+			element: (
+				<Suspense fallback={<Loading showLoadingText={true} />}>
+					<SignUp />
+				</Suspense>
+			),
+			errorElement: <ErrorPage />,
+		},
+		{
+			path: `/pages/${MainPageNavTabs.DASHBOARD}`,
+			element: (
+				<Suspense fallback={<Loading showLoadingText={true} />}>
+					<MainPageWrapper
+						showMainPageNav={showMainPageNav}
+						setShowMainPageNav={setShowMainPageNav}
+						children={
+							<Dashboard
+								setShowMainPageNav={setShowMainPageNav}
+							/>
+						}
+					/>
+				</Suspense>
+			),
+			errorElement: <ErrorPage />,
+		},
+		{
+			path: `/pages/${MainPageNavTabs.TABLES}`,
+			element: (
+				<Suspense fallback={<Loading showLoadingText={true} />}>
+					<MainPageWrapper
+						showMainPageNav={showMainPageNav}
+						setShowMainPageNav={setShowMainPageNav}
+						children={
+							<TablesPage
+								setShowMainPageNav={setShowMainPageNav}
+							/>
+						}
+					/>
+				</Suspense>
+			),
+			errorElement: <ErrorPage />,
+		},
+	]);
+
 	let theme = createTheme({
 		typography: {
 			fontFamily: 'Helvetica, Sans-Serif',

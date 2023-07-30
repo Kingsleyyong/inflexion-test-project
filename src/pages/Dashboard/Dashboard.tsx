@@ -7,10 +7,17 @@ import AnalyticCard from '../../components/AnalyticsCard/AnalyticCard';
 import { DashboardGridItem } from '../../constant/mockData';
 import MainCardboard from '../../components/MainCardboard/MainCardboard';
 
-const Dashboard = () => {
+const Dashboard = ({
+	setShowMainPageNav,
+}: {
+	setShowMainPageNav: React.Dispatch<React.SetStateAction<boolean>>;
+}) => {
 	return (
 		<div className={style.dashboardParent}>
-			<PageWrapperHeader pageTitle={MainPageNavTabs.DASHBOARD} />
+			<PageWrapperHeader
+				pageTitle={MainPageNavTabs.DASHBOARD}
+				setShowMainPageNav={setShowMainPageNav}
+			/>
 
 			<Grid container spacing={2} alignItems="stretch">
 				{DashboardGridItem.map((gridItem, itemIndex) => {
@@ -35,7 +42,7 @@ const Dashboard = () => {
 								key={`Grid ${itemIndex + 1}`}
 							>
 								<MainCardboard
-									cardInformation={cardInformation}
+									cardInformation={cardInformation as any}
 								/>
 							</Grid>
 						);

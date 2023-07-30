@@ -10,7 +10,7 @@ import Loading from '../Loading/Loading';
 const Table = lazy(() => import('../TablesWrapper/Table'));
 interface MainCardboardProp {
 	cardInformation: DashBoardMainCard;
-	className: string;
+	className?: string;
 }
 const MainCardboard = ({ cardInformation, className }: MainCardboardProp) => {
 	const { caption, title, description, readMoreOption, image, ChildNode } =

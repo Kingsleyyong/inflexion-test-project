@@ -5,10 +5,17 @@ import { TablesData } from '../../constant/mockData';
 import { MainPageNavTabs } from '../../types/globalTypes';
 import style from './TablesPage.module.sass';
 
-const TablesPage = () => {
+const TablesPage = ({
+	setShowMainPageNav,
+}: {
+	setShowMainPageNav: React.Dispatch<React.SetStateAction<boolean>>;
+}) => {
 	return (
 		<div>
-			<PageWrapperHeader pageTitle={MainPageNavTabs.TABLES} />
+			<PageWrapperHeader
+				pageTitle={MainPageNavTabs.TABLES}
+				setShowMainPageNav={setShowMainPageNav}
+			/>
 
 			{TablesData.map((data) => (
 				<MainCardboard

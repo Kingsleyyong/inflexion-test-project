@@ -21,7 +21,11 @@ const Card = () => {
 			{ActiveUserCardData.map((data) => (
 				<div className={style.card} key={data.captionTitle}>
 					<div className={style.flexTopBox}>
-						<img src={data.img} alt={data.captionTitle} />
+						<img
+							src={data.img}
+							alt={data.captionTitle}
+							loading="lazy"
+						/>
 						<Typography
 							variant={'caption'}
 							color={style.gray400}

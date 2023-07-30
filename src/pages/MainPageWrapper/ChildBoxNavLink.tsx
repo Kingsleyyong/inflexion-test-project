@@ -30,6 +30,7 @@ const ChildBoxNavLink = ({
 		>
 			<div className={style.logoBox}>
 				<img
+					loading="lazy"
 					src={
 						selectedPage === nav.title
 							? nav.selectedImage

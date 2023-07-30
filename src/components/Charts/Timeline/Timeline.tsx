@@ -32,7 +32,11 @@ const Timeline = () => {
 							}`}
 						/>
 						<TimelineDot className={style.timelineDot}>
-							<img src={data.img} alt={data.text} />
+							<img
+								src={data.img}
+								alt={data.text}
+								loading="lazy"
+							/>
 						</TimelineDot>
 						<TimelineConnector
 							className={`${

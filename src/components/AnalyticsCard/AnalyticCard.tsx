@@ -37,7 +37,7 @@ const AnalyticCard = ({ cardDetails }: AnalyticCardProp) => {
 				</div>
 			</div>
 
-			<img src={imagePath} alt="Cart" />
+			<img src={imagePath} alt="Cart" loading="lazy" />
 		</div>
 	);
 };

@@ -48,6 +48,7 @@ const MainPageWrapper = ({
 				<div className={style.leftNavBar}>
 					<div className={style.navBarChildBox}>
 						<img
+							loading="lazy"
 							src={LogosImage.VandaleyIndustryLogoDark}
 							alt="Vandaley Industry"
 						/>
@@ -93,7 +94,11 @@ const MainPageWrapper = ({
 					))}
 
 					<div className={style.helpDiv}>
-						<img src={MainPageNavLogo.Help} alt="Help Logo" />
+						<img
+							loading="lazy"
+							src={MainPageNavLogo.Help}
+							alt="Help Logo"
+						/>
 						<Typography
 							color={style.white}
 							mt={3}

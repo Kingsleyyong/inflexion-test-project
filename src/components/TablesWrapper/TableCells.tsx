@@ -59,6 +59,7 @@ const TableCells = ({ header, rowObject, rowIndex }: TableCellsProp) => {
 						<div className={style.cellBox}>
 							{img !== undefined && (
 								<img
+									loading="lazy"
 									src={img}
 									alt={img}
 									data-imagewidth={headerString}

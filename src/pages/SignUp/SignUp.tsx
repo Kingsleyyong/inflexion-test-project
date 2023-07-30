@@ -40,9 +40,21 @@ const SignUp = () => {
 				</Typography>
 
 				<div className={style.signUpLogo}>
-					<img src={LogosImage.FacebookLogo} alt="Facebook Sign In" />
-					<img src={LogosImage.AppleLogo} alt="Apple Sign In" />
-					<img src={LogosImage.GoogleLogo} alt="Google Sign In" />
+					<img
+						loading="lazy"
+						src={LogosImage.FacebookLogo}
+						alt="Facebook Sign In"
+					/>
+					<img
+						loading="lazy"
+						src={LogosImage.AppleLogo}
+						alt="Apple Sign In"
+					/>
+					<img
+						loading="lazy"
+						src={LogosImage.GoogleLogo}
+						alt="Google Sign In"
+					/>
 				</div>
 
 				<Typography

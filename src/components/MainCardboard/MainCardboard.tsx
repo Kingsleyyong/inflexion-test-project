@@ -112,6 +112,7 @@ const MainCardboard = ({ cardInformation, className }: MainCardboardProp) => {
 				{image && (
 					<Fragment>
 						<img
+							loading="lazy"
 							draggable={false}
 							src={image.path}
 							alt={image.path}

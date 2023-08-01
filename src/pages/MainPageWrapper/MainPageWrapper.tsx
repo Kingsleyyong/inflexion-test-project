@@ -28,7 +28,7 @@ const MainPageWrapper = ({
 	);
 
 	const location = useLocation();
-	const { medium, large } = useMediaQueries();
+	const { large } = useMediaQueries();
 
 	useEffect(() => {
 		const locationArrPath = location.pathname.split('/');

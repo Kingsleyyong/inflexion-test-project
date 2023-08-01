@@ -1,10 +1,6 @@
 import { NavLink } from 'react-router-dom';
 import style from './MainPageWrapper.module.sass';
-import {
-	MainPageNavTabs,
-	MainPageNavTabsType,
-	Tabs,
-} from '../../types/globalTypes';
+import { MainPageNavTabs, MainPageNavTabsType } from '../../types/globalTypes';
 import { Typography } from '@mui/material';
 import { filterPath } from '../../constant/utils';
 

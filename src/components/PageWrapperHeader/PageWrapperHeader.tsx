@@ -35,7 +35,7 @@ const PageWrapperHeader = ({
 		},
 	});
 
-	const { medium, large } = useMediaQueries();
+	const { large } = useMediaQueries();
 
 	return (
 		<div className={style.parentDiv}>
@@ -90,7 +90,9 @@ const PageWrapperHeader = ({
 
 				<NavLink to={`/${Tabs.SIGNIN}`} className={style.theButton}>
 					<PersonIcon />
-					<Typography variant={'caption'}>Sign In</Typography>
+					{large && (
+						<Typography variant={'caption'}>Sign In</Typography>
+					)}
 				</NavLink>
 
 				<NavLink to={''} className={style.theButton}>

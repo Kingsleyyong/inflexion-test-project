@@ -4,9 +4,6 @@ import { Link, Typography } from '@mui/material';
 //Style
 import style from './Footer.module.sass';
 
-//Hooks
-import { useMediaQueries } from '../../hooks/mediaQuery';
-
 enum Links {
 	ABOUT_US = 'About US',
 	PRIVACY = 'Privacy',
